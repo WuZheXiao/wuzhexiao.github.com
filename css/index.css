@@ -1,0 +1,103 @@
+@charset "GBK";
+/* CSS Document
+Use for:  
+Version:  1.00
+Date: 2012/7/17
+Author:
+*/
+
+
+body, div, h1, h2, h3, h4, h5, h6, p, blockquote, dl, dt, dd, ul, ol, li, fieldset, form, tr, th, td, center, input, button, textarea{padding:0;margin:0}/*基础设置ˉ*/
+table { border-collapse: collapse; border-spacing: 0;}
+fieldset, img { border: 0;}
+button,input,select,textarea{ font-size:12px;}
+input,img,select{ vertical-align:middle;}
+ul,li{list-style:none;}
+h1, h2, h3, h4, h5, h6 {font-size: 100%; }
+.left{ float:left;}
+.right { float:right;}
+.txthide{text-indent:-9999em;overflow:hidden; line-height:0; font-size:0;}
+.relative { position:relative;}
+.absolute { position:absolute;}
+
+/* float */
+.clearfix:after{ content:""; height:0; visibility:hidden; display:block; clear:both;}
+.clearfix{ zoom:1;}
+.clear { clear:both;}
+.over{overflow:hidden; }
+/* a */
+a {color:#7c7c7c; text-decoration:none;}
+a:hover {color:#7c7c7c; text-decoration:underline;} 
+
+body{font-size:12px; font-family:"宋体";
+}
+
+.top{
+	width: 100%;
+height: 200px;
+	
+	margin: o auto;
+	background-image: url(../img/538031d8c9c1794a155d07b5847dc9b6.jpg);
+}
+
+.middle{
+	width: 1001px;
+	margin: 0 auto;
+ 
+	}
+	.middle_left{
+		float: left;
+	padding-top: 100px;
+	font-size: 30px;
+	color: #fff;
+	}
+	.middle_left>span{
+		color: bisque;
+		font-size: 32px;
+	}
+.middle_ul{
+	padding-top: 100px;
+	
+}
+.middle>ul{
+	float: right;
+
+}
+
+.middle_ul>li{
+	float: left;
+	padding-left: 25px;
+	font-size: 20px;
+	color: burlywood;
+	
+}
+.biji{
+	padding-top: 50px;
+	color: #fff;
+	font-size: 20px;
+	
+}
+.biji,.ziliaoku,.gerenriben,.aboutme{
+	
+	color: #fff;
+	font-size: 20px;
+	width: 100%;
+	height: 900px;
+	background-image: url(../img/26eea19e66edc0b186bd574e8a3c8675.jpg);
+	
+}
+
+
+
+.bijiright{
+	text-align: center;
+	width: 400px;
+	height: 800px;
+	border: 1px solid lightcyan;
+	float: right;
+   
+}	
+
+.html1,.java,.wangye,.web{
+	margin-top: 20px;
+}
