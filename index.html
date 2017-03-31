@@ -2,7 +2,7 @@
 		<html>
 			<head>
 				<meta charset="utf-8" />
-				<link rel="short icon" type="text/css" href="images/11.ico">
+				<link rel="short icon" type="text/css" href="img/11.ico">
 			    <link rel="stylesheet" type="text/css" href="css/index.css">
 				<title>吴喆枭的个人博客</title>
 			</head>
@@ -15,7 +15,7 @@
 		  	   	<ul class="middle_ul">
 							<li>首页</li>
 							<li><a href="#biji1"> 前端基础</a></li>
-							<li><a href="#ziliaoku1">前端资料库</a> </li>
+							<li><a href="#ziliaoku1">总结</a> </li>
 							<li><a href="#gerenriben1">个人日记</a> </li>
 						    <li><a href="#aboutme1">关于我</a> </li>
 						</ul>	
@@ -26,6 +26,11 @@
 		      	<div class="middle">
 		      	<div class="fontbiji">前端基础<img src="img/新建笔记.png"/> </div>
 		      	<hr />
+		      	
+		      
+		      	<div class="box"> <img src="img/vv.jpg" id="images"></div>
+
+		      	<div class="bijileft1"></div>
 		      	<div class="bijiright">
 		      		<div class="html1">
 		      			
@@ -55,17 +60,34 @@
 		      	</div>
 		      </div>
          <div class="ziliaoku" id="ziliaoku1">
+         
 		      	<div class="middle">
-		      	<div class="fontbiji">前端资料库 <img src="img/资料.png"/>    </div>
+		      		<div class="fontbijia">总结<img src="img/资料.png"/>    </div>
 		      	<hr />
-		      	<div class="bijiright"></div>
+		 
+		      		<div class="bijilefta_left">个
+		      			人
+		      			总
+		      			结</div>
+		      		<div class="bijilefta_right">
+		      		<div class="bijilefta_right_top">3月31日总结:<span class="gituse">git的使用</span>
+		      		<div class="bijilefta_right_top_bt">git上传文件夹步骤：1.创建一个文件夹 <br/>2.初始化  git init <br/>3.克隆git clone+地址 <br/>4.上传文件到项目中 <br/>5.cd项目名称 <br/>6.git add . <br/>7.git pull <br/>8.git commit -m "注释" <br/>9.git push origin master</div>
+		      		<div><img src="img/zzz.png"/></div>
+		      		<div > <img src="img/zzz.jpg"/>	</div>
+		      			
+		      	
+		      		</div>
+		      			</div>
+		      		</div>
+		      		
+		      	
 		      	</div>
 		      </div>
 		   <div class="gerenriben" id="gerenriben1">
 		      	<div class="middle">
 		      	<div class="fontbiji">个人日记 <img src="img/一日记-01.png"/> </div>
 		      	<hr />
-		      	<div class="bijiright"></div>
+		      	<div class="bijileft"></div>
 		      	</div>
 		      </div>  
 		 
@@ -77,6 +99,45 @@
 		      	</div>
 		      </div>  
 		     
-		
+		<script type="text/javascript">
+ var imgList="img/vv.jpg,img/zz.jpg,img/bb.jpg,img/84.jpg".split(',');
+ var index=0;
+ //下一张
+function show(){
+
+var imgs=document.getElementById('images');
+ if (index==imgList.length-1) {
+ 	index=-1;
+ }
+imgs.src=imgList[++index];
+
+ 
+} 
+//上一张
+function  showa(){
+
+var imgs=document.getElementById('images');
+ if (index==0) {
+ 	index=imgList.length;
+ }
+
+imgs.src=imgList[--index];
+
+}
+ timer = setInterval(show, 3000);
+
+ // 鼠标划过停止自动播放
+ images.onmouseover = function() {
+ clearInterval(timer);
+ }
+ 
+ // 鼠标离开继续播放至下一张
+ images.onmouseout = function() {
+ timer = setInterval(show, 3000);
+ }
+
+ 
+	</script>
+
 			</body>
 		</html>
