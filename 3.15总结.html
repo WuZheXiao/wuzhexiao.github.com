@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+	<title>66</title>
+  <style type="text/css">
+.box{
+width: 800px;
+margin:0 auto;
+background-color: black;
+}
+h2{
+  color: #7FFFD4;
+}
+div{
+color: #E0FFFF;
+}
+
+.inpo{
+  font-weight: bolder;
+  color: red;
+}
+.top{
+	color: #00FFFF;
+}
+.back{
+	font-size: 30px;
+}
+
+  </style> 
+	<meta charset="utf-8">
+
+	<div class="box">
+     
+      <h2 class="top">面向对象 java javaScript c++ </h2>
+
+        
+
+       <h3 class="top">面向对象编程</h3><span class="back"><a href="index.html"> 返回首页 <img src="img/返回首页 .png"/></a> </span>
+
+      <div>/ document.write(this);//BOM浏览器对象模型</div>  
+
+         <div> var box2 = {</div>
+      	 <div> age:12,</div>
+      	<div>  name:'小红',</div>
+      <div>	  sex:'女',</div>
+      	<div>  run:function(){</div>
+      <div>	  	document.write("名字"+this.name+"年龄"+this.age);</div>
+   	  }
+      };
+
+ <div>     box.run();</div>
+  <div>    box2.run();</div>
+  <div>     1.很多重复声明 .</div>
+<div>       2.无法进行判别,属于那个类别</div>
+      */
+/*     
+<div>      var box = new Object();//通过new 关键字创建一个对象</div>
+  <div>        box.age = 12;</div>
+<div>          box.sex = '男';</div>
+  <div>        box.run = function(){</div>
+<div>          	 document.write("名字"+this.name+"年龄"+this.age);</div>
+          };
+
+ <div>     var box2 = new Object();//通过new 关键字创建一个对象</div>
+<div>          box2.age = 14;</div>
+  <div>        box2.name = 'xiao11';</div>
+  <div>        box2.sex = '男';</div>
+  <div>        box2.run = function(){</div>
+  <div>        	 document.write("名字"+this.name+"年龄"+this.age);</div>
+       };
+
+   <div>    var goods = new Object();//通过new 关键字创建一个对象</div>
+    <div>      goods.price = 12;</div>
+    <div>      goods.number = 10;</div>
+     <div>     goods.bandr = '红富士';</div>
+
+
+
+<div>document.write(goods instanceof Object==box2 instanceof Object);*/</div>
+
+  /**
+   * <h2>工厂模式创建对象</h2>
+   */
+/*<div>   function creatObject(name,age,sex){</div>
+     <div>    var obj = new Object();</div>
+     <div>        obj.name = name;</div>
+   <div>         obj.age = age;</div>
+    <div>         obj.sex = sex;</div>
+     <div>        obj.run = function(){</div>
+     <div>            alert(this.name);</div>
+            };
+   <div>        return obj;</div>
+ <div>   }//把重复声明给解决了</div>
+
+    <div>   function creatGoods(price,name,number){</div>
+    <div>     var obj = new Object();</div>
+    <div>         obj.price = price;</div>
+    <div>         obj.name = name;</div>
+    <div>         obj.number = number;</div>
+     <div>        obj.run = function(){</div>
+    <div>             alert(this.name);</div>
+            };
+      <div>     return obj;</div>
+   }
+
+   <div> var box1 = creatObject("小黑",18,'男');</div>
+ <div>   var box2 = creatGoods(18,'苹果',10);</div>
+
+
+  <div>  document.write(box2 instanceof Object);</div>
+  <div>  //还是无法判别他们的类别*/</div>
+
+   /**
+  <div class="inpo">   * 构造函数名字首字需要大</div>
+    */
+  <div>  /*function  User(name,sex,age){</div>
+         
+   <div>       this.name = name;</div>
+   <div>       this.sex = sex;</div>
+    <div>      this.age = age;</div>
+
+   }
+
+   <div> function  Goods(name,price,number){</div>
+         
+   <div>       this.name = name;</div>
+   <div>       this.price = price;</div>
+   <div>       this.number = number;</div>
+      
+   }
+*/
+  
+ 
+ <div>  // var arr = new Array(5);</div>
+ <div class="inpo">  //在用new Array() 创建数组,构造函数里只要一个参数时,代表声明的是它的长度。</div>
+<div>   //length属性获取长度，不止可读,还能设置值.</div>
+<div>   //var arr2 = [1,5,8,6,10];//在IE9浏览器是会把识别为一个元素</div>
+<div>   //arr.length= 100;</div>
+ <div>   //;//语法错误</div>
+   /**
+ <div>    *   var arr = new Array(10);//代表数组长度为10</div>
+ <div>        var arr2  = [10];//代表一个值</div>
+
+<div> 
+        document.write(arr.length+",");</div>
+  <div>       document.write(arr2.length);</div>
+
+
+   <div>     var arr = [1,"sds",true,new Object(),10];</div>
+   <div>     //数组没有类型限制,同一个数组可以放任意类型。</div>
+   <div>     //我们自己使用通常会进行分类</div>
+   <div>     //数组会自动扩容</div>
+   <div>     //数组也可以称为集合(可变数组)</div>
+    */
+   
+
+
+      <div class="inpo">   
+        var arr = [5,4,3,2,1];//找出最大值</div>
+
+       /**
+   <div class="inpo">      * [shot 数组排序从小到大]</div>
+   <div>      * @param  {[type]} arr [description]</div>
+   <div>      * @return {[type]}     [description]</div>
+   <div>      */
+   <div>     function shot(arr) {</div>
+    <div class="inpo">     //冒泡排序</div>
+   <div>      for (var i = 1; i < arr.length; i++) {</div>
+        	    
+     <div>    	    for (var j = 0; j < arr.length-i; j++) {</div>
+        	    	 
+     <div>  	    	 if (arr[j]>arr[j+1]) {</div>
+                            
+           <div>                  var temp = arr[j];</div>
+
+            <div>                 arr[j] = arr[j+1];</div>
+
+            <div>                 arr[j+1] = temp;</div>
+        	    	 }
+        	    }
+        }
+}
+
+        /**
+    <div class="inpo">     * [getMax 获取数组最大值]</div>
+   <div>      * @param  {[type]} arr [description]</div>
+   <div>      * @return {[type]}     [description]</div>
+        */  
+ <div>  function getMax(arr){</div>
+
+  <div>      var max = arr[0];</div>
+
+   <div>     for(var i = 1;i<<!-- arr -->.length;i++){</div>
+
+   <div>     	    if (max<<!-- arr -->[i]) {</div>
+
+       <div>          max =  arr[i];</div>
+       	    }
+
+       }
+    <div>     return max;</div>
+
+  }
+  /**
+ <div class="inpo">   * [getMin 获取数组最小值]</div>
+<div>   * @param  {[type]} arr [description]</div>
+<div>    * @return {[type]}     [description]</div>
+   */
+<div>    function getMin(arr){</div>
+    
+   <div>     var min = arr[0];</div>
+
+    <div>    for(var i = 1;i<?.length;i++){</div>
+
+     <div>   	    if (min>arr[i]) {</div>
+
+      <div>           min =  arr[i];</div>
+      	    }
+
+       }
+       return min;
+  }
+
+  /*
+      shot(box);
+
+    document.write(getMin(box)+"<br/>");
+    document.write(getMax(box));
+   */
+
+/**
+ *  document.write(box.toString()+"<br/>");
+    document.write(box.valueOf()+"<br/>");
+    document.write(box.toLocaleString());
+ */
+
+/*    document.write(box.join('_'));//不会对原数组进行修改
+
+    console.log(box);*/
+
+/*
+<h2 class="inpo"> 数组方法Array</h2> *
+<div class="inpo">  * 栈方法</div>
+<div>  * push()向原数组末尾添加任意个数元素</div>
+<div>  *       返回值为添加之后的数组长度 </div>
+<div>  * pop() 移出数组末尾最后一个元素,并修改了length长度 </div>
+<div>  *       返回被移除的元素值 </div> 
+<div>  * 队列方法</div>
+ *   
+<div>  * shift()移除数组开头元素</div>
+ <div> *        并返回移除的元素 </div> 
+<div>  * unshift()向原数组前端添加多个元素</div>
+<div>  *         返回添加元素后,数组的长度</div>
+<div>  * reverse() 将数组元素反序(逆序)</div>
+<<div> div>  *           返回修改后的,数组形式的字符串</div>
+<div>  * sort() 没参数时按照 ASCII 字符顺序进行升序排列</div>
+ <div> *        参数为一个函数(具体细节参考手册)</div>
+<div>  *        返回修改后的,数组形式的字符串</div>
+ *        
+ <div>   function dome(a,b){</div>
+            
+  <div>      return b-a;</div>
+   }
+<
+  <div class="inpo">  操作方法</div>
+ <div>   concat() //将一个或多个数组合并</div>
+              并且返回合并后的新数组,不改变原数组。</div>
+
+ <div> * slice  //一个参数时,从当前下标开始截取直到末尾.返回截取的一段</div>
+<div>  *        //两个参数时,从当前下标开始截取到第二个参数为止</div>
+<div>  *          (不包括第二个参数的元素)前包后不包</div>
+<div> 
+<div>  * splice //1.删除功能</div>
+<div>         //返回被删除的元素。</div>
+<div>         //两个参数 第一个是删除的位置,第二个是删除的数量</div>
+          //返回被删除的元素。 </div>  
+<div>        //2.插入功能 </div>
+  <div>         //第一个参数控制插入的位置,</div>
+
+<div>          //第二个参数必须设置为零(保证不移出元素)</div>
+ <div>          //之后可由一个或多个参数组成的插入项目</div>
+ <div>          //3.替换功能</div>
+ <div>          //第一个参数控制替换的位置</div>
+  <div>         //第二个参数控制替换的个数</div>
+ <div>          //之和的替换的参数个数与第二个参数的值保持一致</div>
+                          
+ */
+ <div>   * Math.floor()向下取整,/</div>
+ <div>   * Math.random()产生0 - 1之间的随机数,/</div>
+</div>
+</head>
+<body>
+
+</body>
+</html>
+var userlist=new Array();
+    // var user=null;
+    var index;
+     function User(account,password,name,sex){
+        this.account = account;
+        this.password = password;
+        this.name = name;
+        this.sex = sex;
+        this.input=function(){
+            return "account="+this.account+",password="+this.password+",name="+this.name+",sex="+this.sex+"\n";
+        }
+    }
+
+
+var  person1=new User('wyw',123,11,'男');
+var  person2=new User('www',234,13,'男');
+var  person3=new User('wyy',345,17,'女');
+
+userlist[0]=person1;
+userlist[1]=person2;
+userlist[2]=person3;
+
+var account=prompt("请输入你注册账号");
+var password=prompt("请输入你的注册密码");
+
+for (var i = 0; i < userlist.length; i++) {
+    if (account==userlist[i].account) {
+            var index=i;
+            alert("用户已存在，请重新注册");
+            break;
+    }
+    }
