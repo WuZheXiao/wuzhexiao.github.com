@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			ul li {
+				width: 200px;
+				height: 20px;
+				/*position: absolute;*/
+				float: left;
+				line-height: 20px;
+				list-style: none;
+				background-color: blueviolet;
+				color: black;
+				text-align: center;
+				cursor: pointer;
+			}
+			
+			ul li div {
+				overflow: hidden;
+				width: 200px;
+				height: 0px;
+				background-color: crimson;
+				position: absolute;
+				top: 20px;
+				color: black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul>
+			<li>Home
+				<div>
+					div1<br /> div2
+					<br /> div3
+					<br />
+				</div>
+			</li>
+			<li>About
+				<div>
+					div1<br /> div2
+					<br /> div3
+					<br />
+				</div>
+			</li>
+			<li>Join
+				<div>
+					div1<br /> 
+					div2<br />
+					div3<br />
+					
+				</div>
+			</li>
+
+		</ul>
+	</body>
+	<script type="text/javascript">
+		var divs = document.getElementsByTagName("li");
+		for (var i = 0; i < divs.length; i++) {	
+			divs[i].onmouseover = function() {
+			var div = this.getElementsByTagName("div")[0];
+			div.timer = null;
+			div.style.height="auto";
+			var h=div.offsetHeight;
+				div.style.height=0;
+				animation(div,h);
+			}
+			divs[i].onmouseout = function() {
+				var div = this.getElementsByTagName("div")[0];
+				animation(div, 0);
+			}
+		}
+		function animation(div, tPoint) {
+			clearInterval(div.timer);
+			var speed;
+			div.timer = setInterval(function() {
+				if (div.offsetHeight < tPoint) {
+					speed = 10;
+				} else {
+					speed = -10;
+				}
+				if (Math.abs(div.offsetHeight - tPoint) <= 10) {
+					clearInterval(div.timer);
+					div.style.height = tPoint + "px";
+				} else {
+					div.style.height = div.offsetHeight+ speed + "px";
+				}
+			}, 33);
+		}
+	</script>
+
+</html>

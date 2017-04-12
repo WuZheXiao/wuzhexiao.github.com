@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#div{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				background-color: blueviolet;
+		
+			}
+			#div1{
+				width: 1px;
+				height: 300px;
+				left: 500px;
+				
+				top: 10;
+				position: absolute;
+				
+			}
+		</style>
+	</head>
+	<body>
+	<button id="btn">dunk！！！</button>
+	<div id="div"><img src="img/QQ截图20170411150009.png"/style="width: 200px;height: 200px;"></div>
+	<div id="div1">
+		<img src="img/QQ截图20170411150330.png"/>
+	</div>
+	<script type="text/javascript">
+		var div=document.getElementById("div");
+    	var btn =document.getElementById("btn");
+
+btn.onclick = function() {
+	animatel(500);
+}
+
+var timer;
+
+function animatel(tPoint) {
+	var speed=0;
+//	var left=0;
+	clearInterval(timer);
+	timer=setInterval(function(){
+	speed+=(300-div.offsetLeft)/20;
+	speed*=0.9;
+//	left+=speed;
+	if(300==div.offsetLeft){
+		clearInterval(timer);
+		div.style.left=300+"px";
+	}else{
+			div.style.left=div.offsetLeft+speed+"px";
+	}
+	},33)
+	
+  		}
+	</script>
+	</body>
+</html>
