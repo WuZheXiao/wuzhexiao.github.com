@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">show</button>
+		<div id="div">
+			
+		</div>
+		<script type="text/javascript">
+			var btn=document.getElementById("btn");
+			btn.onclick=function(){
+				ajax("GET","img.txt",function(msg){
+					console.log(msg);
+					var img=msg;
+					var div=document.getElementById("div");
+					div.innerHTML=img;
+				})
+			}
+			function ajax(meta,uri,fn){
+				var xhr = new XMLHttpRequest();
+			if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+				xhr = new XMLHttpRequest();
+			} else { // code for IE6, IE5
+			    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4) {
+					if (xhr.status == 200) {
+						fn(xhr.response);
+			/*			var div = document.getElementById("div")
+						div.innerText = xhr.response;
+						//服务器返回的正确数据
+						console.log(xhr.response);*/
+					}
+				}
+			}
+			xhr.open(meta, uri);
+			xhr.send();
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body style="text-align: center;background-color: #000000;">
+
+	<h2 style="color: #FFFFFF;">ajax创建步骤</h2>	
+	<div id="">
+		<img src="img/QQ图片20170418183416.png"style="width: 893px;"/>
+		
+	</div>
+	<img src="img/QQ图片20170418183549.png"/>
+	<div id="div" style="margin-left:500px">
+			
+		</div>
+		<script type="text/javascript">
+			
+		
+		
+			
+			var div=document.getElementById("div");
+			var tb;
+			
+			
+				ajax("GET","json.txt",function(msg){
+					var div=document.getElementById("div");
+					if(!tb){
+						tb=document.createElement("table");
+					}	
+					
+						tb.style.border="1px solid #000";
+					     
+						tb.style.width="900px";
+						div.appendChild(tb);
+					var thr=document.createElement("tr");
+						tb.appendChild(thr);
+						thr.style.backgroundColor="#CCCCCC";
+					var tdName = document.createElement("td");
+					tdName.innerText="姓名";
+					thr.appendChild(tdName);
+					var tdSex=document.createElement("td");
+						tdSex.innerText="Jan 2016";
+						tdSex.style.paddingRight="66px";
+						thr.appendChild(tdSex);
+					var tdAge=document.createElement("td");
+						tdAge.innerText="Change";
+						tdAge.style.paddingRight="66px";
+						thr.appendChild(tdAge);
+					var tdPhone=document.createElement("td");
+						tdPhone.innerText="Programming Language";
+						tdPhone.style.paddingRight="120px";
+						thr.appendChild(tdPhone);
+					var tdImg=document.createElement("td");
+						tdImg.innerText="Ratings";
+						tdImg.style.paddingRight="66px";
+						thr.appendChild(tdImg);
+					var tdChange=document.createElement("td");
+						 tdChange.innerText="Change";
+						thr.appendChild(tdChange);
+					
+					var obj=JSON.parse(msg);
+					var arrList=obj.list;
+					var origincolor;
+					//console.log(arrList);
+					//console.log(arrList.length);
+					for(var i=0;i<arrList.length;i++){
+						var obj1=arrList[i];
+						var tr=document.createElement("tr");
+							tb.appendChild(tr);
+							if(i%2==0){
+								tr.style.backgroundColor="white";
+							}else{
+							tr.style.backgroundColor="#CCCCCC";
+							}
+						
+							
+							for(var j in obj1){
+								//console.log(obj1);
+								var td=document.createElement("td");
+								tr.appendChild(td);
+								td.style.paddingRight="50px"
+								if(j=="img"){
+									var img=document.createElement("img");
+									td.appendChild(img);
+									img.src=obj1[j];
+									img.style.width="30px";
+								}else{
+									td.innerText=obj1[j];
+								}
+								
+							}
+							
+			tr.onmouseover=function(){
+			origincolor=this.style.backgroundColor;
+		this.style.backgroundColor="#93FF93"
+		}
+		console.log(arrList[i])
+		tr.onmouseout=function(){			
+			this.style.backgroundColor=origincolor;
+			
+		}	
+						
+					}
+					
+							
+				})
+			
+			function ajax(meta,uri,fn){
+				var xhr = new XMLHttpRequest();
+			if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+				xhr = new XMLHttpRequest();
+			} else { // code for IE6, IE5
+			    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4) {
+					if (xhr.status == 200) {
+						fn(xhr.response);
+					}
+				}
+			}
+			xhr.open(meta, uri);
+			xhr.send();
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,15 @@
+{
+	"pageNum":"1",
+	"totalNum":"100",
+	"list":[
+			{"name":"1","paiming":"1","img":"","age":"Java","phone":"17.278%","sex":"-4.19%"},
+		    {"name":"2","paiming":"2","img":"","age":"C","phone":"9.349%","sex":"-6.69%"},
+			{"name":"3","paiming":"3","img":"","age":"C++","phone":"6.301%","sex":"-0.61%"},
+            {"name":"4","paiming":"4","img":"","age":"C#","phone":"4.039%","sex":"-0.67%"},
+            {"name":"5","paiming":"5","img":"","age":"Python","phone":"3.465%","sex":"-0.39%"},
+             {"name":"6","paiming":"7","img":"img/上升.png","age":"Visual Basic.NET","phone":"2.960%","sex":"+0.38%"},
+                {"name":"7","paiming":"8","img":"img/上升.png","age":"JavaScript","phone":"2.850%","sex":"+0.29%"}
+	],
+	"status":"ok"
+}
+

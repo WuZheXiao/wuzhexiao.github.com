@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>魔形成绩系统</title>
+	</head>
+	<body id="body">
+		<script type="text/javascript">
+			window.onload=function(){
+				var body=document.getElementById("body");
+				
+				
+				var divName=document.createElement("span");
+					divName.innerText="姓名：";
+					divName.style="line-height:30px;margin-top:7px;";
+					body.appendChild(divName);
+			
+				var ip1=document.createElement("input");
+					ip1.setAttribute("type","text");
+					ip1.setAttribute("name","name");
+					ip1.setAttribute("id","name");
+					ip1.style="margin:10px;";
+					body.appendChild(ip1);
+					
+				var divSex=document.createElement("span");
+					divSex.innerText="性别：";
+					divSex.style="float:left;line-height:30px;margin-top:7px;";
+					
+					body.appendChild(divSex);		
+				var ip2=document.createElement("input");
+					ip2.setAttribute("type","text");
+					ip2.setAttribute("name","sex");
+					ip2.setAttribute("id","sex");
+					ip2.style="margin:10px;float:left;";
+					body.appendChild(ip2);
+				
+				var divScore=document.createElement("span");
+					divScore.innerText="成绩：";
+					divScore.style="float:left;line-height:30px;margin-top:7px;";
+					body.appendChild(divScore);	
+				var ip3=document.createElement("input");
+					ip3.setAttribute("type","text");
+					ip3.setAttribute("name","score");
+					ip3.setAttribute("id","score");
+					ip3.style="margin:10px;float:left;";
+					body.appendChild(ip3);
+			
+				var button=document.createElement("button");
+					button.innerText="添加";
+					
+					body.appendChild(button);
+				
+				var table=document.createElement("table");
+					table.setAttribute("border","1");
+					table.setAttribute("width","600px");
+					table.style="text-align:center;";
+					
+					table.setAttribute("cellspacing","0");
+					table.setAttribute("id","myTable");
+				
+					body.appendChild(table);
+				
+			    var cap=table.createCaption();//表头标签
+					cap.innerText="魔形成绩管理系统";
+					table.appendChild(cap);
+					
+				var tHead=table.createTHead(); //THead
+					tHead.style="text-algn:center;";
+					table.appendChild(tHead);
+				
+				var trHead=document.createElement("tr");//tr
+					tHead.appendChild(trHead);
+				
+				var tdId=document.createElement("td");//id
+					tdId.innerText="id";
+					trHead.appendChild(tdId);
+				
+				var tdName=document.createElement("td");//name
+					tdName.innerText="姓名";
+					trHead.appendChild(tdName);
+				
+				var tdSex=document.createElement("td");//sex
+					tdSex.innerText="性别";
+					trHead.appendChild(tdSex);
+				
+				var tdScore=document.createElement("td");//score
+					tdScore.innerText="成绩";
+					trHead.appendChild(tdScore);
+					
+					
+				var tdDo=document.createElement("td");//zaozuo
+					tdDo.innerText="操作";
+					trHead.appendChild(tdDo);
+				
+				
+				var tbody=document.createElement("tbody");
+					table.appendChild(tbody);
+				
+				
+				
+				var row=myTable.tBodies[0].rows;
+				var oldColor;
+				var id=myTable.tBodies[0].rows.length;
+				
+				
+				button.onclick=function(){
+				var stuName=document.getElementById("name").value;
+				var stuSex=document.getElementById("sex").value;
+				var stuScore=document.getElementById("score").value;
+					
+				var tr=document.createElement("tr");//tr
+					tbody.appendChild(tr);
+					
+					
+				var tdId=document.createElement("td");//id
+					tdId.innerText=id++;
+					tr.appendChild(tdId);
+					
+				
+				var name=document.createElement("td");//name
+					name.innerText=stuName;
+					tr.appendChild(name);
+				
+				var sex=document.createElement("td");//sex
+					sex.innerText=stuSex;
+					tr.appendChild(sex);
+				
+				var score=document.createElement("td");//score
+					score.innerText=stuScore;
+					tr.appendChild(score);
+				
+				   box();
+				
+				var del=document.createElement("td");
+				var a=document.createElement("a");
+					a.setAttribute("href","javascript:;")
+					a.innerText="删除";
+					del.appendChild(a);
+					tr.appendChild(del);
+					a.onclick=function(){
+					myTable.tBodies[0].removeChild(this.parentNode.parentNode);
+					box();
+				}
+					
+				}
+	
+	
+	function box(){
+						for(var i=0;i<myTable.tBodies[0].rows.length;i++){
+						row[i].onmouseover=function (){
+						oldColor=this.style.backgroundColor;
+						this.style.backgroundColor='green';
+				
+					}
+						row[i].onmouseout=function(){
+						this.style.backgroundColor=oldColor;
+					}
+					if(i%2){
+						row[i].style.backgroundColor="#cfcfcf";
+				
+					}
+						else row[i].style.backgroundColor="";
+					}
+						
+					}
+		}	
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

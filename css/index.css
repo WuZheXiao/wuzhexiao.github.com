@@ -139,19 +139,15 @@ padding-left: 100px;
 	height: 800px;
 	border: 1px solid lightcyan;
 	float: right;
-   
 }	
 
 /*.html1,.java,.wangye,.web{
 	margin-top: 20px;
 }*/
 .ziliaoku{
-	
+
 	width: 100%;
-	
-	
-	
-   
+
 }
 .bijilefta_left{
 	
@@ -167,7 +163,7 @@ padding-left: 100px;
 }
 .bijilefta_right{
 	width:900px ;
-	height:840px;
+	height:940px;
 	border: 1px solid silver;
 	float: right;
 	border-bottom-color: black;
