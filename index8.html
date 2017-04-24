@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>canvas画图</title>
+	<meta charset="utf-8">
+    <meta name="keywords" content="canvas画图,,Canvas,">
+    <meta name="description" content="一，基本用法1，使用前给canvas设定高度和宽度，出现在标签中的内容在浏览器不支持canvas时使用　　&lt;canvas id="drawing" width="200",height="200" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="http://jingpin.jikexueyuan.com/css/app.css" rel="stylesheet">
+	<script src="http://jingpin.jikexueyuan.com/js/jquery.min.js"></script>
+	<script src="http://jingpin.jikexueyuan.com/js/bootstrap.min.js"></script>
+
+	<!-- Fonts -->
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	
+	<![endif]-->
+</head>
+<body>
+	<nav class="navbar navbar-default ">
+		<div class="container-fluid ">
+			<div class="navbar-header">
+                <a href="/">
+             
+                </a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav hide">
+					
+				</ul>
+                <!--
+				<ul class="nav navbar-nav navbar-right">
+											<li><a href="http://jingpin.jikexueyuan.com/auth/login">Login</a></li>
+						<li><a href="http://jingpin.jikexueyuan.com/auth/register">Register</a></li>
+									</ul>
+                -->
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="panel panel-default">
+			<!--	<div class="panel-heading">Home</div> -->
+
+				<div class="panel-body">
+                    <div class="pager">
+                        <h1 class="h4">canvas画图</h1>
+                        <div class="row">
+                        <div class="col-md-6 text-left"><span> </span></div>
+                        <div class="col-md-6 text-right">
+                   
+                        </div>
+                        </div>
+                    </div>
+                    <p>
+                        <p>一，基本用法<br />1，使用前给canvas设定高度和宽度，出现在标签中的内容在浏览器不支持canvas时使用<br />　　&lt;canvas id="drawing" width="200",height="200"&gt;A drawing of something&lt;/canvas&gt;<br />2，getContext("2d");取得绘图上下文的引用</p>  <div >  <pre>　　<span  >var</span> drawing = document.getElementById("drawing"<span  >);  　　    </span><span  >if</span><span  >(drawing.getContext){  　　　　    </span><span  >var</span> context = drawing.getContext("2d"<span  >);  　　    }</span></pre>  </div>  <p>3,使用toDataURL()方法，可以导出canvas元素上绘制的图像，接收一个MIME类型格式</p>  <div >  <pre>　　<span  >var</span> drawing = document.getElementById("drawing"<span  >);  　　</span><span  >if</span><span  >(drawing.getContext){  　　　　</span><span  >var</span> context = drawing.getContext("2d"<span  >);  　　　　</span><span  >var</span> imgURL = drawing.toDataURL("image/png"<span  >);  　　　　</span><span  >var</span> image = document.createElement("img"<span  >);  　　　　image.src</span>=<span  >imgURL;  　　　　document.body.appendChild(image);  　　}</span></pre>  </div>  <p>二，2D上下文<br />1，填充和描边<br />　　填充是用指定的样式（颜色，渐变或图像）填充图形　　<br /><span  >　　描边只在图形的边缘画线，</span><br />	　　使用fillStyle，strokeStyle两个属性<br />2，绘制矩形<br />	　　fillRect(),strokeRect(),clearRect(),接收四个参数，矩形的x坐标，y坐标，矩形宽度和矩形高度</p>  <div >  <pre>　　<span  >var</span> drawing = document.getElementById("drawing"<span  >);  　　</span><span  >if</span><span  >(drawing.getContext){  　　　　</span><span  >var</span> context = drawing.getContext("2d"<span  >);  　　　　context.fillStyle </span>= "#0000ff"<span  >;  　　　　context.fillRect(</span>10,10,40,50<span  >);  　　　　context.fillStyle </span>= "rgba(0,0,255,0.5)"<span  >;  　　　　context.fillRect(</span>30,30,50,50<span  >);  　　　　context.strokeStyle </span>= "red"<span  >;  　　　　context.StrokeRect(</span>30,30,80,80<span  >);  　　}</span></pre>  </div>  <p> 　　lineWidth属性指定线条的宽度，<br />	　　lineCap属性指定线条末端的形状，平头（butt），圆头（round），方头（square）<br />	　　lineJoin属性指定线条相交的方式，圆交（round），斜交（bevel），斜接（miter）<br />	　　clearRect()用于清除一个矩形，把上下文的某一矩形表透明<br />3，绘制路径<br />	　　beginPath()，开始路径，closePath()，闭合路径（将终点和起点闭合）<br />		　　arc(x,y,radius,startAngle,endAngle,counterclockwise)<br />		　　arcTo(x1,y1,x2,y2,radius):从上一点开始到（x2,y2）的一条弧线，给定的半径穿过（x1,y1）<br />		　　bezierCurveTo(c1x,c1y,c2x,c2y,x,y):从上一点开始到(x,y)的弧线，(x1,y1)(x2,y2)为控制点<br />		　　lineTo(x,y):从上一点到(x,y)的直线<br />		　　moveTo(x,y):将绘图游标移动到(x,y)，不划线<br />		　　quadraticCurveTo(cx,cy,x,y)：从上一点绘制一条二次曲线到(x,y)，(cx,cy)为控制点<br />		　　rect(x,y,width,height),从(x,y)绘制矩形，<br />	　　路径完成，使用filleStyle属性设置填充样式，使用fill()方法实现填充<br />	　　使用strokeStyle属性设置描边样式，使用stroke()方法，对路径描边<br />	　　使用clip(),在路径上创建一个剪切区域</p>  <div >  <pre>　　<span  >var</span> drawing = document.getElementById("drawing"<span  >);  　　</span><span  >if</span><span  >(drawing.getContext){  　　　　</span><span  >var</span> context =<span  > doawing.getContext;  　　　　context.beginPath();  　　　　context.arc(</span>100,100,99,0,2*Math.PI,<span  >false</span><span  >);  　　　　context.moveTo(</span>194,100<span  >);  　　　　context.arc(</span>100,100,94,0,2*Math.PI,<span  >false</span><span  >);  　　　　context.moveTo(</span>100,100<span  >);  　　　　context.lineTo(</span>100,15<span  >);  　　　　context.moveTo(</span>100,100<span  >);  　　　　context.lineTo(</span>35,100<span  >);  　　　　context.stroke();  　　}</span></pre>  </div>  <p> 　　isPointInPath(x,y)方法,用于判断路径被闭合之前，(x,y)是否位于路径上<br />	　　if(context.isPointInPath(100,100)){alert("Yes");}<br />4，绘制文本<br />	　　fillText(),strokeText(),接收四个参数，绘制的文本字符串，x坐标，y坐标，可选的最大像素宽度<br />	　　font属性：表示文本样式，大小，字体<br />	　　textAlign属性：文本对齐方式，有start，end，left，right，和center<br />	　　textBaseline属性：文本的基线，top，hanging，middle，alphabetic，ideographic，bottom<br />	　　使用fillStyle属性绘制文本，使用fillText()方法实现<br />	　　measureText()，接收一个参数，要绘制的文本，返回一个对象，仅有一个width属性，用来确定文本大小的方法<br />	　　var fontSize = 100;<br />	　　context.font = fontSize + "px Arial";<br />	　　while(context.measureText("Hello world").width &gt; 140){<br />		　　　　fontSize --;<br />		　　context.font = fontSize + "px Arial";<br />	　　}<br />	　　context.fillText("hello world",10,10);<br />	　　context.fillText("Font size is" + fontSize + "px",10,50);<br />5，变换<br />	　　rotate(angle):围绕原点旋转图像angle弧度<br />	　　scale(scaleX,scaleY):缩放图像，x方向乘以scaleX,y方向上乘以scaleY<br />	　　translate(x,y):将坐标原点移动到(x,y)，<br />	　　transform(m1_1,m1_2,m2_1,m2_2,dx,dy):直接修改变化矩阵，方式乘以如下矩阵<br />				　　　　　　m1_1　　 m1_2 　　dx<br />				　　　　　　m2_1 　　m2_2　　 dy<br />				　　　　　　0	　　　　 0	　　　　  1<br />	　　setTransform(m1_1,m1_2,m2_1,m2_2):将变换矩阵重置为默认状态，然后调用transform()<br />	　　save(),方法保存某组属性与变换，后面可能还会用到，只保存上下文的设置和变换，不会保存内容<br />	　　restore()，在保存设置的栈结构中向前返回一级<br />	　　连续设置save(),可以把更多的设置保存在栈结构中，restore(),可以一级一级的返回<br />6，绘制图像<br />	　　drawImage(要绘制的图像，源图像的x坐标，源图像的y坐标，源图像的宽度，源图像的高度，目标图像的x坐标，目标图像的y坐标，目标图像的宽度，目标　　　图像的高度);<br />	　　image为从html&lt;img&gt;元素获取<br />	　　操作结果通过toDataURL()方法获取<br />7，阴影<br />	　　shadowColor属性：用css样式表示阴影颜色，默认为黑色<br />	　　shadowOffsetX属性：形状或路径x轴方向的阴影偏移量<br />	　　shadowOffsetY属性：形状或路径y轴方向的引用偏移量<br />	　　shadowBlur属性：模糊的像素数<br />8，渐变<br />	　　渐变有canvasGradient实例表示<br />	　　线性渐变，createLinearGradient(起点x坐标，起点y坐标，终点x坐标，终点y坐标)<br />		　　使用addColorStop(色标位置，CSS颜色值)方法来指定色标<br />		　　var gradient = context.createLinearGradient(30,30,70,70);<br />		　　gradient.addColor(0,"white");<br />		　　gradient.addColor(1,"black");<br />		　　context.fillStyle = gradient;<br />		　　context.fillRect(30,30,50,50);<br />		　　图形坐标要和渐变对象坐标对应效果才明显<br />		　　function createRectLinearGradient(context,x,y,width,height){<br />			　　　　return context.createLinearGradient(x,y,x+width,y+height);<br />		　　}<br />	　　径向渐变，createRadialGradient(x1,y1,radius1,x2,y2,radius2)<br />	　　一般设置同心圆情况较多，此时只要考虑两个圆设置不同的半径就好<br />9，模式<br />	　　createPattern(HTML&lt;img&gt;元素，表示如何重复图像的字符串)<br />	　　第二个参数可以为 repeat，repeat-x，repeat-y，no-repeat<br />	　　var image = document.images[0];<br />	　　pattern = context.createPattern(image,"repeat");<br />	　　context.fillStyle = pattern;<br />	　　context.fillRect(10,10,150,150);<br />	　　只表示在画布中的从(10,10)到(150,150)区域显示重复的图片<br />	　　第一个参数也可以是video元素，或者另一个canvas元素<br />10，使用图像数据<br />	　　getImageData(要取得其数据的画面区域的x和y坐标，该区域的像素宽度和高度)，<br />	　　返回一个imageData的实例，每个imageData对象有三个属性，width，height，data<br />	　　data属性是一个数组，保存着图像中每个像素的数据，data数组中，每个像素用四个元素来保存，表示红，绿，蓝，透明度<br />	　　第一个像素的数据就保存在数组的第0到第3个元素中<br />	　　var data = imageData.data,red=data[0],green=data[1],blue=data[2],alpha=fata[3];<br />	　　一个简单的灰阶过滤器</p>  <div >  <pre><span  >var</span> drawing = document.getElementById("drawing"<span  >);  </span><span  >if</span><span  >(drawing.getContext){  　　</span><span  >var</span> context =<span  > drawing.getContext;  　　</span><span  >var</span> image = document.images[0<span  >];  　　</span><span  >var</span><span  > imageData,data,i,len,average,re,green,blue,alpha;  　　context.drawImage(image,</span>0,0<span  >);  　　imageData </span>= context.getImageData(0,0<span  >,image.width,image.height);  　　data </span>=<span  > imageData.data;  　　</span><span  >for</span>(i=0,len=data.length;i&lt;len;i=i+4<span  >){  　　　　red </span>=<span  > data[i];  　　　　green </span>= data[i+1<span  >];  　　　　blue </span>= data[i+2<span  >];  　　　　alpha </span>= data[i+3<span  >];  　　　　average </span>= Math.floor((red+green+blue) / 3<span  >);  　　　　data[i] </span>=<span  > average;  　　　　data[i</span>+1] =<span  > average;  　　　　data[i</span>+2] =<span  > average;  　　}  　　imageData.data </span>=<span  > data;  　　context.putImageData(imageData,</span>0,0<span  >)  }</span></pre>  </div>  <p> 　　putImageData()方法是把图像数据绘制到画布上<br />11，合成<br />	　　globalAlpha属性：介于0-1的值，指定所有绘制的透明度，全局透明度，设置后要设置为默认透明度为0<br />	　　globalCompositionOperation属性：表示后绘制的图像怎样与先绘制的图形结合，属性值如下<br />	　　source-over：后绘制的图像位于先绘制的图形上面<br />	　　source-in:后绘制的图形和先绘制的图形重叠部分可见，两者其余部分完全透明<br />	　　source-out：后绘制的图形和先绘制的图形不重叠部分可见，先绘制的图形完全透明<br />	　　source-atop：后绘制的图形和先绘制的图形重叠部分可见，先绘制的图形不受影响<br />	　　destination-over:后绘制的图形位于先绘制的图形下方，只有之前透明像素下的部分可见<br />	　　destination-in：后绘制的图形位于先绘制的图形下方，两者不重叠部分完全透明<br />	　　destination-out：后绘制的图形擦除与先绘制的图形重叠部分<br />	　　destination-atop:后绘制的图形位于先绘制的图形下方，不重叠不部分，先绘制的图形会变透明<br />	　　lighter：后绘制的图形与先绘制的图形重叠部分的值相加，该部分变亮<br />	　　copy：后绘制的图形完全替代与之重叠的先绘制的图形<br />	　　xor：后绘制的图形与先绘制的图形重叠部分执行异或操作<br />三，WebGL<br />1，类型化数组<br />	　　类型化数组的核心是一个名为ArrayBuffer的类型，每个ArrayBuffer对象表示的只是内存中指定的字节数，不会指定这些字节用于保存什么类型的数据<br />	　　var buffer = new ArrayBuffer(20);<br />	　　var bytes = buffer.byteLength;<br />	　　1）视图<br />		　　使用ArrayBuffer的一种特别的方式就是来创建数组缓冲器视图,创建视图DataView实例的时候传人ArrayBuffer，可选的字节偏移量，可选的要选择的字节数<br />		　　var buffer = new ArrayBuffer(20);<br />		　　var view = new DataView(buffer,9,15);<br />		　　实例化后，byteOffset保存字节偏移量，byteLength保存字节长度<br />		　　读取和写入DataView的时候，要根据实际操作的数据类型，选择相应的getter和setter方法<br />			　　　　有符号8位整数	getInt8(byteOffset)		setInt8(byteOffset,value)<br />			　　　　无符号8位整数	getUint8(byteOffset)	setUint8(byteOffset,value)<br />			　　　　有符号16位整数	getInt16(byteOffset)	setInt16(byreOffset,value)<br />			　　　　无符号16位整数	getUint16(byteOffset)	setUint16(byteOffset,value)<br />			　　　　有符号32位整数	getInt32(byteOffset)	setInt32(byteOffset,value)<br />			　　　　无符号32位整数	getUitn32(byteOffset)	setUint32(byteOffset,value)<br />			　　　　32位浮点数		getFloat32(byteOffset	setFloat32(byteOffset,value)<br />			　　　　64位浮点数		getFloat64(byteOffset)	setFloat64(byteOffset,value)<br />		　　读写16位或更大数值的方法都有一个可选的littleEndian属性，是一个布尔值，表示是否采用最小端字节序<br />		　　var buffer = new ArrayBuffer(20);<br />		　　var view = new DataView(buffer);<br />		　　view.setUint16(0,25);	以无符号16位写入25在0位置<br />		　　var value = view.getInt8(0);	以有符号8为读出0位置的值<br />	　　2）类型化视图<br />		　　类型化视图继承了DataView，<br />		　　　　Int8Array,Int16Array,Int32Array,表示8,16,32位二补整数<br />		　　　　Uint8Array,Uint16Array,Uint32Array,表示8,16,32位无符号整数<br />		　　　　Float32Array，Float64Array，表示32,64为IEEE浮点值<br />		　　var int8s = new Int8Array(buffer,9,10)<br />		　　同一个缓冲区保存不同类型的数值<br />		　　var int8s = new Int8Array(buffer,0,10);<br />		　　var int16s = new Int16Array(butter,11,10);<br />		　　每个视图构造函数都有一个名为BYTES_PER_ELEMENT属性，保存类型化数组的每个元素需要多少字节<br />		　　创建类型化视图可以不用先创建ArrayBuffer对象，只要传人希望数组保存的元素数，相应的构造函数就会自动创建包含足够字节数的ArrayBuffer对象<br />		　　var int8s = new Int8Array(10);<br />		　　var int8s = new Int8Array([10,20,30,20,20]);保存5个8位整数<br />		　　通过length属性确定数组中包含的元素个数<br />		　　subarray()方法，接收两个参数，开始元素的索引和可选的结束元素的索引，返回类型与调用该方法的视图类型相同<br />2，WebGL上下文</p>  <div >  <pre>　　<span  >var</span> drawing = document.getElementById("drawing"<span  >);  　　</span><span  >if</span><span  >(drawing.getContext){  　　</span><span  >var</span> gl = drawing.getContext("experimental-webgl"<span  >);  　　</span><span  >if</span><span  >(gl){}  　　}</span></pre>  </div>  <p> 　　getContext()接收第二个参数，可以为webGL上下文设置一些选项，参数本身是一个对象，包含属性如下<br />		　　alpha：值为true，表示为上下文创建一个Alpha通道缓冲区，默认值为true<br />		　　depth：值为true，表示可以使用16位深缓冲区，默认为true<br />		　　stencil：值为true，表示可以使用8位模板缓冲区，默认为true<br />		　　antialias：值为true，表示将使用默认机制执行抗锯齿操作，默认值为true<br />		　　premultipliedAlpha:值为true，表示绘图缓冲区有预乘Alpha值，默认为true<br />		　　preserveDrawingBuffer：值为true，表示在绘图完成后，保留绘图缓冲区，默认为false</p>  <div >  <pre>　　<span  >var</span> gl = drawing.getContext("experimental-webgl",{alpha:<span  >false</span><span  >});  　　</span><span  >if</span><span  >(drawing.getContext){  　　　　</span><span  >try</span><span  >{  　　　　　　gl </span>= drawing.getContext("experimental-webgls"<span  >);  　　　　}</span><span  >catch</span><span  >(ex){}  　　　　</span><span  >if</span>(gl){}<span  >else</span><span  >{}  　　}</span></pre>  </div>  <p>　　1）常量<br />		　　gl.开头，比如gl.COLOR_BUFFER_BIT<br />	　　2）方法命名<br />		　　通过方法名后缀判断接收的参数的类型和数量，f表示浮点数，i表示整数，v表示接收数组参数<br />		　　如gl.uniform3iv()<br />	　　3）准备绘图<br />		　　实际操作上下文前，要使用某种实色清除canvas<br />		　　clearColor()，方法来指定要使用的颜色值，接收4个参数，红，绿，蓝，透明度，参数0-1，表示分量的强度<br />		　　clear(),方法，清理缓冲区<br />	　　4）视图与坐标<br />		　　开始绘图之前，要先定义webGL的视口，调用viewport()方法，参数为视口相对于canvas元素的x坐标，y坐标，宽度和高度<br />		　　gl.viewport(0,0,drawing.width,drawing.height);<br />		　　视口坐标原点在canvas元素的左下角<br />		　　视口内部的坐标系原点在中心位置<br />	　　5）缓冲区<br />		　　创建缓冲区，var buffer = gl.createBuffer(),<br />		　　绑定到上下文，gl.bindbuffer(gl.ARRAY_BUFFER,buffer),<br />		　　数据填充，gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([0,0.5,1])),gl.STATIC_DRAW);<br />		　　释放内存，gl.deleteBuffer(buffer);<br />		　　gl.bufferData(),的最后一个参数用于指定使用缓冲区的方式，取值范围如下<br />			　　gl.STATIC_DRAW:数据只加载一次，在多次绘图中使用<br />			　　gl.STREAM_DRAW:数据只加载一次，在几次绘图中使用<br />			　　gl.DYNAMIC_DRAW:数据动态改变，在多次绘图中使用<br />	　　6）错误<br />		　　手工调用gl.getError()，返回一个错误类型的常量<br />		　　gl.NO_ERROR:没有错误<br />		　　gl.INVALID_ENUM:应该传人webGL常量，但传错了参数<br />		　　gl.INVALID_VALUE:在需要无符号的地放传入了负值<br />		　　gl.INVALID_OPERATION:在当前状态下不能完成操作<br />		　　gl.OUT_OF_MENORY:没有足够的内存完成操作<br />		　　gl.CONTEXT_LOST_WEBGL:外部文件干扰，丢失了当前webGL上下文</p>  <div >  <pre>　　<span  >var</span> errorCode =<span  > gl.getError();  　　</span><span  >while</span><span  >(errorCode){  　　　　console.log(</span>"Error occurred:" +<span  > errorCode);  　　　　errorCode </span>=<span  > gl.getError();  　　}</span></pre>  </div>  <p> 　　7）着色器<br />		　　定点着色器：将3D顶点转换为需要渲染的2D点<br />		　　片段着色器：准确计算要绘制的每个像素的颜色<br />	　　8）编写着色器<br />	　　9）编写着色器程序<br />	　　10）为着色器传人值<br />	　　11）调试着色器和程序<br />	　　12）绘图<br />	　　13）文理<br />	　　14）读取像素<br />
+                    </p> 
+
+                  
+                    <hr>
+                   
+              
+
+                    <!-- baidu分享 start -->
+          
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+
+
+
+</body>
+</html>
