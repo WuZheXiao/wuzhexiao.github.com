@@ -1,4 +1,4 @@
-@charset "GBK";
+﻿@charset "GBK";
 
 /* CSS Document
 Use for:  
@@ -270,7 +270,7 @@ body {
 
 .bijilefta_right {
 	width: 900px;
-	height: 1000px;
+	height: 1200px;
 	border: 1px solid silver;
 	float: right;
 	border-bottom-color: black;
