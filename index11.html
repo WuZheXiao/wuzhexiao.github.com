@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>静态布局，自适应布局，流体式布局，响应式布局概念 - Carolina - 博客园</title>
+
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/BlackLowKey/bundle-BlackLowKey.css?v=B7-m2NxlKbJ6xN_kGRXgbaLp9_4SHPK1jC_DQ8UbhqA1"/>
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="/skins/BlackLowKey/bundle-BlackLowKey-mobile.css?v=hM_4ic4i3O5wKXUjikUYwUGh6o9_4est1wSubdkIKhE1"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/carolina/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/carolina/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/carolina/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/script/jquery.js" type="text/javascript"></script>  
+<style type="text/css">
+	#main{
+		width: 800px;
+		margin: auto;
+	}
+</style>
+
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">	
+		
+<!--done-->
+
+
+
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+			静态布局，自适应布局，流体式布局，响应式布局概念
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><p><span style="color: #333333; text-decoration: underline;"><em>480px以下，480px-640px,640px-1024px,1024px以上</em></span></p>
+<p>static:静止的，不变的,not change or move &nbsp;</p>
+<p>adaptive:能适应的， having the ability or tendency(常发生的行为，倾向) to adapt to different situations.</p>
+<p>liquid:像液体一样流动的，非固定形状和排列的</p>
+<p>responsive:迅速积极反应的,&nbsp;quick and favourable(有利的) to react</p>
+<p>layout:the way in which the <span style="color: #ff0000;">parts</span> are <span style="color: #ff0000;">arranged</span>(安排，排列)</p>
+<p><strong>静态布局：<span style="color: #ff0000;">元素不变</span>的布局。</strong></p>
+<p>布局特点：</p>
+<p>窗口缩小后内容被遮挡时，<span style="color: #ff0000;">拖动滚动条</span>显示布局</p>
+<p>设计方法：</p>
+<p>PC：<span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">居中</span></span>布局，<span style="color: #ff0000;">所有样式使用绝对宽度，高度</span></p>
+<p>移动设备：<span style="color: #ff0000;">另外建立移动网站</span>，以m.域名为域名</p>
+<p><strong>自适应布局：创建<span style="color: #ff0000;">多个静态布局</span>，每个静态布局对应一个屏幕分辨率范围</strong></p>
+<p>布局特点：</p>
+<p>改变屏幕分辨率可以切换不同的静态局部，在每个静态布局中，元素不发生变化，<span style="text-decoration: underline;"><span style="color: #ff0000; text-decoration: underline;">相当于静态布局的一个系列</span></span></p>
+<p>设计方法：</p>
+<p>使用媒体查询功能</p>
+<p><strong>流体式布局：元素宽度按照分辨率宽度进行<span style="color: #ff0000;">长度、宽度的调整，但布局不变</span></strong></p>
+<p>缺点：</p>
+<p>如果屏幕尺度跨度过大，那么在相对原始设计而言过小或过大的屏幕上不能正常显示</p>
+<p><span style="color: #ff0000;"><strong>响应式布局：创建多个流体式布局，分别对应一个<span style="font-size: 18pt;">屏幕分辨率</span>范围</strong></span></p>
+<p>特点：</p>
+<p>分别为不同的屏幕分辨率定义布局，同时，在每个布局中，应用流式布局的理念，即<span style="text-decoration: underline;">页面元素宽度随着窗口调整而自动适配</span></p>
+<p><span style="font-size: 14pt; text-decoration: underline;">创建<span style="color: #ff0000; text-decoration: underline;">多个</span>元素<span style="color: #ff0000; text-decoration: underline;">宽度是相对的</span>的布局</span></p>
+<p>&nbsp;</p>
+<p>理想的响应式布局是指的对PC/移动各种终端进行响应的</p>
+<p><strong>响应式布局基本样式</strong></p>
+
+<p><span style="text-decoration: underline;"><em>使用 <span style="color: #008000; text-decoration: underline;"><span style="text-decoration: underline;">respond.js</span><span style="color: #000000; text-decoration: underline;">解决IE6-IE8不支持CSS3的问题：<span class="tag">&lt;script<span class="pln"> <span class="atn">src<span class="pun">=<span class="atv">"respond.min.js"<span class="tag">&gt;或者&lt;/script&gt;<span class="tag">&lt;script<span class="pln"> <span class="atn">src<span class="pun">=<span class="atv">"respond.src.js"<span class="tag">&gt;&lt;/script&gt;</span></span></span></span></span></span></span></span></span></span></span></span></span></span></em></span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #800000;">先写相同的大框架，部件等
+
+html,body</span>{
+
+}<span style="color: #800000;">
+
+下面写不同的布局
+
+@media only screen and (min-width:480px) and (max-width:640px)</span>{<span style="color: #ff0000;">
+
+　　body{
+
+　　　　background</span>:<span style="color: #0000ff;">yellow</span>;
+
+　　}<span style="color: #800000;">
+
+}
+
+@media only screen and (min-width:640px) and (max-width:1024px)</span>{<span style="color: #ff0000;">
+
+　　body{
+
+　　　　background</span>:<span style="color: #0000ff;">blue</span>;
+
+　　}<span style="color: #800000;">
+
+}
+
+@media only screen and (min-width:1024px)</span>{<span style="color: #ff0000;">
+
+　　body{
+
+　　　　background</span>:<span style="color: #0000ff;">blue</span>;
+
+　　}<span style="color: #800000;">
+
+}</span></pre>
+</div>
+<p>tumblr和qq空间:</p>
+<p>tumblr分别为pc端和手机端制定了<strong>两套布局</strong></p>
+<p><span style="color: #ff0000;">监测<strong>客户端而不是分辨率</strong>，不同的客户端使用不同的一套布局</span></p>
+<p>pc:&lt;body&gt;流体，其中的元素都是静态的</p>
+<p>手机：相对屏幕宽度设定，布局不变，是流体式设计</p>
+<p><span style="color: #666699;"><a href="http://wow.techbrood.com/fiddle/fork?id=25477" target="_blank"><span style="color: #666699; font-size: 18pt;"></span></a></span></p>
+<p>&nbsp;</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		</div>
+	
+
+
+
+
+
+</body>
+</html>
