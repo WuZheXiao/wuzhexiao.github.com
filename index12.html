@@ -1,0 +1,775 @@
+
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="utf-8"/>
+<style type="text/css">
+	#box{
+		width: 800px;
+		margin: auto;
+	}
+</style>
+<title>jq 使用手册</title>
+</head>
+<body>
+<div id="box">
+	<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="navigator">
+
+
+			<div class="blogStats">
+				
+				<div id="blog_stats">
+
+				
+			</div>
+		</div>
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/hnyei/archive/2011/12/05/2276485.html">jq 使用手册</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><p> jQuery简称jq，是一款同prototype一样优秀js开发库类，特别是对css和XPath的支持，使我们写js变得更加方便！如果你不是个js高手又想写出优 秀的js效果，jq可以帮你达到目的！<br />
+  下载地址：Starterkit （<a href="http://jquery.bassistance.de/jquery-starterkit.zip"><span style="color: #1d58d1;">http://jquery.bassistance.de/jquery-starterkit.zip</span></a>）<br />
+   jQuery Downloads （<a href="http://jquery.com/src/"><span style="color: #1d58d1;">http://jquery.com/src/</span></a>）</p>
+<p> 下载完成后先加载到文档中，然后我们来看个简单的例子！</p>
+<div>&lt;scriptlanguage="javascript"type="text/javascript"&gt;<br />
+  $(document).ready(function(){<br />
+  $("a").click(function(){<br />
+  alert("Helloworld!");<br />
+  });<br />
+  });<br />
+  &lt;script&gt;</div>
+<p>上边的效果是点击文档中所有a标签时将弹出对话框，$("a") 是一个jQuery选择器，$本身表示一个jQuery类，所有$()是构造一个jQuery对象，click()是这个对象的方法，同理$(document)也是一个jQuery对象，ready(fn)是$(document)的方法，表示当document全部下载完毕时执行函数。<br />
+   在进行下面内容之前我还要说明一点$("p")和$("#p")的区别,$("p")表示取所有p标签(&lt;p&gt;&lt;/p&gt;)的元素,$("#p")表示取id为"p"(&lt;span id="p"&gt;&lt;/span&gt;)的元素.</p>
+<p>我将从以下几个内容来讲解jQuery的使用:</p>
+<ul>
+<li><strong>1:核心部分</strong></li>
+<li><strong>2:DOM操作</strong></li>
+<li><strong>3:css操作</strong></li>
+<li><strong>4:javascript处理</strong></li>
+<li><strong>5:动态效果</strong></li>
+<li><strong>6:event事件</strong></li>
+
+
+
+
+
+  </ul>
+<p><span style="text-decoration: underline; font-size: 16px;"><strong>一：核心部分</strong></span><br />
+  <strong>$(expr)<br />
+  </strong>说明：该函数可以通过css选择器，Xpath或html代码来匹配目标元素，所有的jQuery操作都以此为基础<br />
+  参数：expr：字符串，一个查询表达式或一段html字符串<br />
+  <strong>例子：</strong><br />
+  未执行jQuery前：</p>
+<div>&lt;p&gt;one&lt;/p&gt;<br />
+  &lt;div&gt;<br />
+   &lt;p&gt;two&lt;/p&gt;<br />
+  &lt;/div&gt;<br />
+   &lt;p&gt;three&lt;/p&gt;<br />
+   &lt;ahref="#"id="test"onClick="jq()"&gt;jQuery&lt;/a&gt;</div>
+<p><br />
+  jQuery代码及功能：</p>
+<div>functionjq(){<br />
+  alert($("div&gt;p").html());<br />
+  }</div>
+<p>运行：当点击id为test的元素时，弹出对话框文字为two，即div标签下p元素的内容</p>
+<div>functionjq(){<br />
+  $("&lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;").appendTo("body");<br />
+  }</div>
+<p>运行：当点击id为test的元素时，向body中添加&ldquo;&lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;&rdquo;<br />
+  <br />
+  <strong>$(elem)</strong><br />
+  说明：限制jQuery作用于一个特定的dom元素，这个函数也接受xml文档和windows对象<br />
+  参数： elem：通过jQuery对象压缩的DOM元素<br />
+  例子：<br />
+  未执行jQuery前：</p>
+<div>&lt;p&gt;one&lt;/p&gt;<br />
+  &lt;div&gt;<br />
+  &lt;p&gt;two&lt;/p&gt;<br />
+  &lt;/div&gt;&lt;p&gt;three&lt;/p&gt;<br />
+  &lt;ahref="#"id="test"onClick="jq()"&gt;jQuery&lt;/a&gt;</div>
+<p>jQuery代码及功能：</p>
+<div>functionjq(){<br />
+  alert($(document).find("div&gt;p").html());<br />
+  }</div>
+<p>运行：当点击id为test的元素时，弹出对话框文字为two，即div标签下p元素的内容</p>
+<div>functionjq(){<br />
+  $(document.body).background("black");<br />
+  }</div>
+<p>运行：当点击id为test的元素时，背景色变成黑色<br />
+  <br />
+  <strong>$(elems)<br />
+  </strong><span style="font-size: small;"><span style="font-size: small;">说明：限制jQuery作用于一组特定的DOM元素<br />
+  参数： elem：一组通过jQuery对象压缩的DOM元素<br />
+  例子：<br />
+  未执行jQuery前：</span></span></p>
+<div>&lt;formid="form1"&gt;<br />
+   &lt;inputtype="text"name="textfield"&gt;<br />
+   &lt;inputtype="submit"name="Submit"value="提交"&gt;<br />
+  &lt;/form&gt;<br />
+  &lt;ahref="#"id="test"onClick="jq()"&gt;jQuery&lt;/a&gt;</div>
+<p><span style="font-size: small;"><span style="font-size: small;">jQuery代码及功能：</span></span></p>
+<div>functionjq(){<br />
+  $(form1.elements).hide();<br />
+  }</div>
+<p>运行：当点击id为test的元素时，隐藏form1表单中的所有元素。<br />
+  <br />
+  <strong>$(fn)<br />
+  </strong><span style="font-size: small;"><span style="font-size: small;">说明：$(document).ready()的一个速记方式，当文档全部载入时执行函数。可以有多个$(fn)当文档载入时，同时执行所有函数！<br />
+  参数：fn (Function):当文档载入时执行的函数！<br />
+  例子：</span></span></p>
+<div>$(function(){<br />
+  $(document.body).background("black");<br />
+  })</div>
+<p><span style="font-size: small;"><span style="font-size: small;">运行：当文档载入时背景变成黑色，相当于onLoad。<br />
+  <br />
+  <strong>$(obj)<br />
+  </strong><span style="font-size: small;">说明：复制一个jQuery对象，<br />
+  参数：obj (jQuery): 要复制的jQuery对象<br />
+  例子：<br />
+  未执行jQuery前：</span></span></span></p>
+<div>&lt;p&gt;one&lt;/p&gt;<br />
+  &lt;div&gt;<br />
+  &lt;p&gt;two&lt;/p&gt;<br />
+  &lt;/div&gt;<br />
+  &lt;p&gt;three&lt;/p&gt;<br />
+  &lt;ahref="#"id="test"onClick="jq()"&gt;jQuery&lt;/a&gt;</div>
+<p><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;">jQuery代码及功能：</span></span></span></p>
+<div>functionjq(){<br />
+  varf=$("div");<br />
+  alert($(f).find("p").html())<br />
+  }</div>
+<p><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;">运行：当点击id为test的元素时，弹出对话框文字为two，即div标签下p元素的内容。<br />
+  <br />
+  <strong>each(fn)<br />
+  </strong><span style="font-size: small;">说明：将函数作用于所有匹配的对象上<br />
+  参数：fn (Function): 需要执行的函数<br />
+  例子：<br />
+  未执行jQuery前：</span></span></span></span></p>
+<div>&lt;imgsrc="1.jpg"/&gt;<br />
+  &lt;imgsrc="1.jpg"/&gt;<br />
+  &lt;ahref="#"id="test"onClick="jq()"&gt;jQuery&lt;/a&gt;</div>
+<p><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;">jQuery代码及功能：</span></span></span></span></p>
+<div>functionjq(){<br />
+  $("img").each(function(){<br />
+  this.src="2.jpg";});<br />
+  }</div>
+<p><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;">运行：当点击id为test的元素时，img标签的src都变成了2.jpg。<br />
+  <br />
+  <strong>eq(pos)<br />
+  </strong><span style="font-size: small;">说明：减少匹配对象到一个单独得dom元素<br />
+  参数：pos (Number): 期望限制的索引，从0 开始<br />
+  例子：<br />
+  未执行jQuery前：</span></span></span></span></span></p>
+<div>&lt;p&gt;Thisisjustatest.&lt;/p&gt;<br />
+  &lt;p&gt;Soisthis&lt;/p&gt;<br />
+  &lt;ahref="#"id="test"onClick="jq()"&gt;jQuery&lt;/a&gt;</div>
+<p><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;">jQuery代码及功能：</span></span></span></span></span></p>
+<div>functionjq(){<br />
+  alert($("p").eq(1).html())<br />
+  }</div>
+<p><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;">运行：当点击id为test的元素时，alert对话框显示：So is this，即第二个&lt;p&gt;标签的内容<br />
+  <br />
+  <span style="color: #000000; font-size: small;"><strong>get() get(num)<br />
+  </strong></span><span style="font-size: small;">说明：获取匹配元素，get(num)返回匹配元素中的某一个元素<br />
+  参数：get (Number): 期望限制的索引，从0 开始<br />
+  例子：<br />
+  未执行jQuery前：</span></span></span></span></span></span></p>
+<div>&lt;p&gt;Thisisjustatest.&lt;/p&gt;<br />
+  &lt;p&gt;Soisthis&lt;/p&gt;<br />
+  &lt;ahref="#"id="test"onClick="jq()"&gt;jQuery&lt;/a&gt;</div>
+<p><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;">jQuery代码及功能：</span></span></span></span></span></span></p>
+<div>functionjq(){<br />
+  alert($("p").get(1).innerHTML);<br />
+  }</div>
+<p><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;">运行：当点击id为test的元素时，alert对话框显示：So is this，即第二个&lt;p&gt;标签的内容<br />
+  <strong>注意get和eq的区别，eq返回的是jQuery对象，get返回的是所匹配的dom对象，所有取$("p").eq(1)对象的内容用jQuery方法html()，而取$("p").get(1)的内容用innerHTML<br />
+  </strong><br />
+  <span style="color: #000000; font-size: small;"><strong>index(obj)<br />
+  </strong></span><span style="font-size: small;">说明：返回对象索引<br />
+  参数：obj (Object): 要查找的对象<br />
+  例子：<br />
+  未执行jQuery前：</span></span></span></span></span></span></span></p>
+<div>&lt;divid="test1"&gt;&lt;/div&gt;<br />
+  &lt;divid="test2"&gt;&lt;/div&gt;<br />
+  &lt;ahref="#"id="test"onClick="jq()"&gt;jQuery&lt;/a&gt;</div>
+<p><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;">jQuery代码及功能：</span></span></span></span></span></span></span></p>
+<div>functionjq(){<br />
+  alert($("div").index(document.getElementById('test1')));<br />
+  alert($("div").index(document.getElementById('test2')));<br />
+  }</div>
+<p><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;">运行：当点击id为test的元素时，两次弹出alert对话框分别显示0，1<br />
+  <br />
+  <span style="color: #000000; font-size: small;"><strong>size() Length<br />
+  </strong></span><span style="font-size: small;">说明：当前匹配对象的数量，两者等价<br />
+  例子：<br />
+  未执行jQuery前：</span></span></span></span></span></span></span></span></p>
+<div>&lt;imgsrc="test1.jpg"/&gt;<br />
+  &lt;imgsrc="test2.jpg"/&gt;<br />
+  &lt;ahref="#"id="test"onClick="jq()"&gt;jQuery&lt;/a&gt;</div>
+<p><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;">jQuery代码及功能：</span></span></span></span></span></span></span></span></p>
+<div>functionjq(){<br />
+  alert($("img").length);<br />
+  }</div>
+<p><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;">运行：当点击id为test的元素时，弹出alert对话框显示2，表示找到两个匹配对象</span></span></span></span></span></span></span><span><span><br />
+  <strong><span><br />
+  <br />
+  </span></strong><strong><span style="text-decoration: underline; font-size: 16px;">二：DOM操作</span></strong><br />
+  <strong>属性<br />
+  </strong>我们以&lt;img id="a" scr="5.jpg"/&gt;为例，在原始的javascript里面可以用var o=document.getElementById('a')取的id为a的节点对象，在用o.src来取得或修改该节点的scr属性，在jQuery里$("#a")将得到jq对象[ &lt;img id="a" scr="5.jpg"/&gt; ]，然后可以用jq提供的很多方法来进行操作，如$("#a").scr()将得到5.jpg,$("#a").scr("1.jpg")将该对象src属性改为1,jpg。下面我们来讲jq提供的众多jQuery方法，方便大家快速对DOM对象进行操作<br />
+  <strong>herf() herf(val)<br />
+  </strong>说明：对jQuery对象属性herf的操作。<br />
+  例子：<br />
+  未执行jQuery前</span></span></p>
+<div>&lt;ahref="1.htm"id="test"onClick="jq()"&gt;jQuery&lt;/a&gt;</div>
+<p><span><span>jQuery代码及功能：</span></span></p>
+<div>functionjq(){<br />
+  alert($("#test").href());<br />
+  $("#test").href("2.html");<br />
+  }</div>
+<p><span><span>运行：先弹出对话框显示id为test的连接url，在将其url改为2.html，当弹出对话框后会看到转向到2.html<br />
+  同理，jQuery还提供类似的其他方法，大家可以分别试验一下：<br />
+  <strong>herf() herf(val) html() html(val) id() id (val) name() name (val) rel() rel (val)<br />
+  src() src (val) title() title (val) val() val(val)<br />
+  </strong><br />
+  <strong>操作<br />
+  </strong><strong>after(html) 在匹配元素后插入一段html</strong></span></span></p>
+<div>&lt;ahref="#"id="test"onClick="jq()"&gt;jQuery&lt;/a&gt;</div>
+<p><span><span><span>jQuery代码及功能：</span></span></span></p>
+<div>functionjq(){<br />
+   $("#test").after("&lt;b&gt;Hello&lt;/b&gt;");<br />
+  }</div>
+<p><span><span><span>执行后相当于：</span></span></span></p>
+<div>&lt;ahref="#"id="test"onClick="jq()"&gt;jQuery&lt;/a&gt;&lt;b&gt;Hello&lt;/b&gt;</div>
+<p><span><span><span><br />
+  <strong>after(elem) after(elems) 将指定对象elem或对象组elems插入到在匹配元素后</strong></span></span></span></p>
+<div>&lt;pid="test"&gt;after&lt;/p&gt;&lt;ahref="#"onClick="jq()"&gt;jQuery&lt;/a&gt;</div>
+<p><span><span><span>jQuery代码及功能</span></span></span></p>
+<div>functionjq(){<br />
+  $("a").after($("#test"));<br />
+  }</div>
+<p><span><span><span>执行后相当于</span></span></span></p>
+<div>&lt;ahref="#"onClick="jq()"&gt;jQuery&lt;/a&gt;&lt;pid="test"&gt;after&lt;/p&gt;</div>
+<p><span><span><br />
+  <strong>append(html)在匹配元素内部，且末尾插入指定html</strong></span></span></p>
+<div>&lt;ahref="#"id="test"onClick="jq()"&gt;jQuery&lt;/a&gt;</div>
+<p><span><span><span>jQuery代码及功能：</span></span></span></p>
+<div>functionjq(){<br />
+  $("#test").append("&lt;b&gt;Hello&lt;/b&gt;");<br />
+  }</div>
+<p><span><span><span>执行后相当于</span></span></span></p>
+<div>&lt;ahref="#"onClick="jq()"&gt;jQuery&lt;b&gt;Hello&lt;/b&gt;&lt;/a&gt;</div>
+<p><span><span><span>同理还有append(elem) append(elems) before(html) before(elem) before(elems)请执行参照append和after的方来测试、理解！<br />
+  <br />
+  <strong>appendTo(expr) 与append(elem)相反</strong></span></span></span></p>
+<div>&lt;pid="test"&gt;after&lt;/p&gt;&lt;ahref="#"onClick="jq()"&gt;jQuery&lt;/a&gt;</div>
+<p><span><span><span>jQuery代码及功能</span></span></span></p>
+<div>functionjq(){<br />
+  $("a").appendTo($("#test"));<br />
+  }</div>
+<p><span><span><span>执行后相当于</span></span></span></p>
+<div>&lt;pid="test"&gt;after&lt;ahref="#"onClick="jq()"&gt;jQuery&lt;/a&gt;&lt;/p&gt;</div>
+<p><span><span><br />
+  <strong>clone() 复制一个jQuery对象</strong></span></span></p>
+<div>&lt;pid="test"&gt;after&lt;/p&gt;&lt;ahref="#"onClick="jq()"&gt;jQuery&lt;/a&gt;</div>
+<p><span><span>jQuery代码及功能：</span></span></p>
+<div>functionjq(){<br />
+  $("#test").clone().appendTo($("a"));<br />
+  }</div>
+<p><span><span>复制$("#test")然后插入到&lt;a&gt;后,执行后相当于</span></span></p>
+<div>&lt;pid="test"&gt;after&lt;/p&gt;&lt;ahref="#"onClick="jq()"&gt;jQuery&lt;/a&gt;&lt;pid="test"&gt;after&lt;/p&gt;</div>
+<p><span><span><span><br />
+  <strong>empty() 删除匹配对象的所有子节点</strong></span></span></span></p>
+<div>&lt;divid="test"&gt;<br />
+  &lt;span&gt;span&lt;/span&gt;<br />
+  &lt;p&gt;after&lt;/p&gt;<br />
+  &lt;/div&gt;<br />
+  &lt;ahref="#"onClick="jq()"&gt;jQuery&lt;/a&gt;</div>
+<p><span><span><span>jQuery代码及功能：</span></span></span></p>
+<div>functionjq(){<br />
+  $("#test").empty();<br />
+  }</div>
+<p><span><span><span>执行后相当于</span></span></span></p>
+<div>&lt;divid="test"&gt;&lt;/div&gt;&lt;ahref="#"onClick="jq()"&gt;jQuery&lt;/a&gt;</div>
+<p><span><span><span><br />
+  <strong>insertAfter(expr) insertBefore(expr)<br />
+  </strong> 按照官方的解释和我的几个简单测试insertAfter(expr)相当于before(elem),insertBefore(expr)相当于after (elem)<br />
+  <br />
+  <strong>prepend (html) prepend (elem) prepend (elems) 在匹配元素的内部且开始出插入<br />
+  </strong>通过下面例子区分append(elem) appendTo(expr) prepend (elem)</span></span></span></p>
+<div>&lt;pid="a"&gt;p&lt;/p&gt;<br />
+  &lt;div&gt;div&lt;/div&gt;</div>
+<p><span><span><span>执行$<strong>("#a").append($("div")) </strong>后相当于</span></span></span></p>
+<div>&lt;pid="a"&gt;<br />
+  P<br />
+  &lt;div&gt;div&lt;/div&gt;<br />
+  &lt;/p&gt;</div>
+<p><span><span><span>执行<strong>$("#a").appendTo($("div"))</strong>后 相当于</span></span></span></p>
+<div>&lt;div&gt;<br />
+  div<br />
+  &lt;pid="a"&gt;p&lt;/p&gt;<br />
+  &lt;/div&gt;</div>
+<p><span><span><span>执行<strong>$("#a").prepend ($("div"))</strong>后 相当于</span></span></span></p>
+<div>&lt;pid="a"&gt;<br />
+  &lt;div&gt;div&lt;/div&gt;<br />
+  P<br />
+  &lt;/p&gt;</div>
+<p><span><span><span><br />
+  <strong>remove() 删除匹配对象</strong><br />
+  注意区分empty()，empty()移出匹配对象的子节点，remove()，移出匹配对象<br />
+  <br />
+  wrap(htm) 将匹配对象包含在给出的html代码内</span></span></span></p>
+<div>&lt;p&gt;TestParagraph.&lt;/p&gt;&lt;ahref="#"onClick="jq()"&gt;jQuery&lt;/a&gt;</div>
+<p><span><span><span>jQuery代码及功能：</span></span></span></p>
+<div>functionjq(){<br />
+  $("p").wrap("&lt;divclass='wrap'&gt;&lt;/div&gt;");<br />
+  }</div>
+<p><span><span><span>执行后相当于</span></span></span></p>
+<div>&lt;divclass='wrap'&gt;&lt;p&gt;TestParagraph.&lt;/p&gt;&lt;/div&gt;</div>
+<p><span><span><br />
+  <strong>wrap(elem) 将匹配对象包含在给出的对象内</strong></span></span></p>
+<div>&lt;p&gt;TestParagraph.&lt;/p&gt;&lt;divid="content"&gt;&lt;/div&gt;<br />
+  &lt;ahref="#"onClick="jq()"&gt;jQuery&lt;/a&gt;</div>
+<p><span><span>jQuery代码及功能：</span></span></p>
+<div><span>function</span><span>jq(){<br />
+  $("p"</span><span>).wrap(document.getElementById('content'));<br />
+  }</span></div>
+<p><span><span>执行后相当于</span></span></p>
+<div><span>&lt;divid="content"&gt;&lt;p&gt;TestParagraph.&lt;/p&gt;&lt;/div&gt;</span></div>
+<p><span><span><br />
+  <strong>遍历、组合<br />
+  </strong><strong>add(expr) 在原对象的基础上在附加符合指定表达式的jquery对象</strong></span></span></p>
+<div>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;&lt;span&gt;HelloAgain&lt;/span&gt;&lt;/p&gt;<br />
+  &lt;ahref="#"onClick="jq()"&gt;jQuery&lt;/a&gt;</div>
+<p><span><span>jQuery代码及功能：</span></span></p>
+<div>functionjq(){<br />
+  varf=$("p").add("span");<br />
+  for(vari=0;i&lt;$(f).size();i++){<br />
+  alert($(f).eq(i).html());}<br />
+  }</div>
+<p><span><span>执行$("p")得到匹配&lt;p&gt;的对象，有两个，add("span")是在("p")的基础上加上匹配&lt;span &gt;的对象，所有一共有3个，从上面的函数运行结果可以看到$("p").add("span")是3个对象的集合，分别是[&lt;p&gt;Hello&lt;/p&gt;]，[&lt;p&gt;&lt;span&gt;Hello Again&lt;/span&gt;&lt;/p&gt;]，[&lt;span&gt;Hello Again&lt;/span&gt;]。<br />
+  <br />
+  <strong>add(el) 在匹配对象的基础上在附加指定的dom元素。</strong><br />
+   $("p").add(document.getElementById("a"));<br />
+  <br />
+  <strong>add(els) 在匹配对象的基础上在附加指定的一组对象，els是一个数组。</strong><br />
+  </span></span></p>
+<div>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;&lt;span&gt;HelloAgain&lt;/span&gt;&lt;/p&gt;</div>
+<p><span><span>jQuery代码及功能：</span></span></p>
+<div>functionjq(){<br />
+  varf=$("p").add([document.getElementById("a"),document.getElementById("b")])<br />
+  for(vari=0;i&lt;$(f).size();i++){<br />
+  alert($(f).eq(i).html());}<br />
+  }</div>
+<p><span><span>注意els是一个数组，这里的[ ]不能漏掉。<br />
+  <br />
+  <strong>ancestors () 一依次以匹配结点的父节点的内容为对象,根节点除外（有点不好理解，看看下面例子就明白了）</strong></span></span></p>
+<div>&lt;div&gt;<br />
+  &lt;p&gt;one&lt;/p&gt;<br />
+  &lt;span&gt;<br />
+  &lt;u&gt;two&lt;/u&gt;<br />
+  &lt;/span&gt;<br />
+  &lt;/div&gt;</div>
+<p><span><span>jQuery代码及功能：</span></span></p>
+<div>functionjq(){<br />
+  varf=$("u").ancestors();<br />
+  for(vari=0;i&lt;$(f).size();i++){<br />
+  alert($(f).eq(i).html());}<br />
+  }</div>
+<p><span><span>第一个对象是以&lt;u&gt;的父节点的内容为对象，[ &lt;u&gt;two&lt;/u&gt; ]<br />
+  第一个对象是以&lt;u&gt;的父节点的父节点（div）的内容为对象，[&lt;p&gt;one&lt;/p&gt;&lt;span&gt;&lt;u&gt;two&lt;/u&gt;&lt;/span&gt; ]<br />
+  一般一个文档还有&lt;body&gt;和&lt;html&gt;，依次类推下去。<br />
+  <br />
+  <strong>ancestors (expr) 在ancestors（）的基础上之取符合表达式的对象</strong><br />
+  如上各例子讲var f改为var f= $("u").ancestors(&ldquo;div&rdquo;),则只返回一个对象：<br />
+  [ &lt;p&gt;one&lt;/p&gt;&lt;span&gt;&lt;u&gt;two&lt;/u&gt;&lt;/span&gt; ]<br />
+  <br />
+  <strong>children() 返回匹配对象的子介点</strong></span></span></p>
+<div>&lt;p&gt;one&lt;/p&gt;<br />
+  &lt;divid="ch"&gt;<br />
+  &lt;span&gt;two&lt;/span&gt;<br />
+  &lt;/div&gt;</div>
+<p><span><span>jQuery代码及功能：</span></span></p>
+<div>functionjq(){<br />
+  alert($("#ch").children().html());<br />
+  }</div>
+<p><span><span>$("#ch").children()得到对象[ &lt;span&gt;two&lt;/span&gt; ].所以.html()的结果是&rdquo;two&rdquo;<br />
+  <br />
+  <strong>children(expr) 返回匹配对象的子介点中符合表达式的节点</strong></span></span></p>
+<div>&lt;divid="ch"&gt;<br />
+  &lt;span&gt;two&lt;/span&gt;<br />
+  &lt;spanid="sp"&gt;three&lt;/span&gt;<br />
+  &lt;/div&gt;</div>
+<p><span><span>jQuery代码及功能</span></span></p>
+<div>functionjq(){<br />
+  alert($("#ch").children(&ldquo;#sp&rdquo;).html());<br />
+  }</div>
+<p><span><span>$("#ch").children()得到对象[&lt;span&gt;two&lt;/span&gt;&lt;span id="sp"&gt;three&lt;/span&gt; ].<br />
+  $("#ch").children(&ldquo;#sp&rdquo;)过滤得到[&lt;span id="sp"&gt;three&lt;/span&gt; ]<br />
+  <br />
+  <strong>parent () parent (expr)取匹配对象父节点的。参照children帮助理解</strong><br />
+  <br />
+  <strong>contains(str) 返回匹配对象中包含字符串str的对象</strong></span></span></p>
+<div>&lt;p&gt;Thisisjustatest.&lt;/p&gt;&lt;p&gt;Soisthis&lt;/p&gt;</div>
+<p><span><span>jQuery代码及功能：</span></span></p>
+<div>functionjq(){<br />
+  alert($("p").contains("test").html());<br />
+  }</div>
+<p><span><span>$("p")得到两个对象，而包含字符串&rdquo;test&rdquo;只有一个。所有$("p").contains("test")返回 [ &lt;p&gt;This is just a test.&lt;/p&gt; ]<br />
+  <br />
+  <strong>end() 结束操作,返回到匹配元素清单上操作前的状态.<br />
+  </strong><br />
+  <strong>filter(expr) filter(exprs) 过滤现实匹配符合表达式的对象 exprs为数组，注意添加&ldquo;[ ]&rdquo;</strong></span></span></p>
+<div>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;HelloAgain&lt;/p&gt;&lt;pclass="selected"&gt;AndAgain&lt;/p&gt;</div>
+<p><span><span>jQuery代码及功能：</span></span></p>
+<div>functionjq(){<br />
+  alert($("p").filter(".selected").html())<br />
+  }</div>
+<p><span><span>$("p")得到三个对象，$("p").contains("test")只返回class为selected的对象。<br />
+  <br />
+  <strong>find(expr) 在匹配的对象中继续查找符合表达式的对象</strong></span></span></p>
+<div>&lt;p&gt;Hello&lt;/p&gt;&lt;pid="a"&gt;HelloAgain&lt;/p&gt;&lt;pclass="selected"&gt;AndAgain&lt;/p&gt;</div>
+<p><span><span>Query代码及功能：</span></span></p>
+<div>functionjq(){<br />
+  alert($("p").find("#a").html())<br />
+  }</div>
+<p><span><span>在$("p")对象中查找id为a的对象。<br />
+  <br />
+  <strong>is(expr) 判断对象是否符合表达式,返回boolen值</strong></span></span></p>
+<div>&lt;p&gt;Hello&lt;/p&gt;&lt;pid="a"&gt;HelloAgain&lt;/p&gt;&lt;pclass="selected"&gt;AndAgain&lt;/p&gt;</div>
+<p><span><span>Query代码及功能：</span></span></p>
+<div>functionjq(){<br />
+  alert($("#a").is("p"));<br />
+  }</div>
+<p><span><span>在$("#a ")是否符合jquery表达式。<br />
+  大家可以用$("#a").is("div"); ("#a").is("#a")多来测试一下<br />
+  <br />
+  <strong>next() next(expr) 返回匹配对象剩余的兄弟节点</strong></span></span></p>
+<div>&lt;p&gt;Hello&lt;/p&gt;&lt;pid="a"&gt;HelloAgain&lt;/p&gt;&lt;pclass="selected"&gt;AndAgain&lt;/p&gt;</div>
+<p><span><span>jQuery代码及功能</span></span></p>
+<div>functionjq(){<br />
+   alert($("p").next().html());<br />
+  alert($("p").next(".selected").html());<br />
+  }</div>
+<p><span><span>$("p").next()返回 [ &lt;p id="a"&gt;Hello Again&lt;/p&gt; , &lt;p class="selected"&gt;And Again&lt;/p&gt; ]两个对象<br />
+  $("p").next(".selected)只返回 [&lt;p class="selected"&gt;And Again&lt;/p&gt; ]一个对象<br />
+  <br />
+  <strong>prev () prev (expr) 参照next理解<br />
+  </strong><br />
+  <strong>not(el) not(expr) 从jQuery对象中移出匹配的对象，el为dom元素，expr为jQuery表达式。</strong></span></span></p>
+<div>&lt;p&gt;one&lt;/p&gt;&lt;pid="a"&gt;two&lt;/p&gt;<br />
+  &lt;ahref="#"onclick="js()"&gt;jQuery&lt;/a&gt;</div>
+<p><span><span>jQuery代码及功能：</span></span></p>
+<div>functionjs(){<br />
+  alert($("p").not(document.getElementById("a")).html());<br />
+  alert($("p").not(&ldquo;#a&rdquo;).html());<br />
+  }</div>
+<p><span><span>$("p")由两个对象，排除后的对象为[&lt;p&gt;one&lt;/p&gt; ]<br />
+  <br />
+  <strong>siblings () siblings (expr) jquery匹配对象中其它兄弟级别的对象</strong></span></span></p>
+<div>&lt;p&gt;one&lt;/p&gt;<br />
+  &lt;div&gt;<br />
+  &lt;pid="a"&gt;two&lt;/p&gt;<br />
+  &lt;/div&gt;<br />
+  &lt;ahref="#"onclick="js()"&gt;jQuery&lt;/a&gt;</div>
+<p><span><span>jQuery代码及功能：</span></span></p>
+<div>functionjs(){<br />
+  alert($("div").siblings().eq(1).html());<br />
+  }</div>
+<p><span><span>$("div").siblings()的结果实返回两个对象[&lt;p&gt;one&lt;/p&gt;，&lt;a href="#" onclick="js()"&gt;jQuery&lt;/a&gt; ]<br />
+  alert($("div").siblings(&ldquo;a&rdquo;)返回一个对象[&lt;a href="#" onclick="js()"&gt;jQuery&lt;/a&gt; ]<br />
+  <br />
+  <strong>其他<br />
+  </strong><strong>addClass(class) 为匹配对象添加一个class样式<br />
+  removeClass (class) 将第一个匹配对象的某个class样式移出<br />
+  </strong><br />
+  <strong>attr (name) 获取第一个匹配对象的属性</strong></span></span></p>
+<div>&lt;imgsrc="test.jpg"/&gt;&lt;ahref="#"onclick="js()"&gt;jQuery&lt;/a&gt;</div>
+<p><span><span>jQuery代码及功能：</span></span></p>
+<div>functionjs(){<br />
+  alert($("img").attr("src"));<br />
+  }</div>
+<p><span><span>返回test.jpg<br />
+  <br />
+  <strong>attr (prop) 为第一个匹配对象的设置属性，prop为hash对象，用于为某对象批量添加众多属性</strong></span></span></p>
+<div>&lt;img/&gt;&lt;ahref="#"onclick="js()"&gt;jQuery&lt;/a&gt;</div>
+<p><span><span>jQuery代码及功能：</span></span></p>
+<div>functionjs(){<br />
+  $("img").attr({src:"test.jpg",alt:"TestImage"});<br />
+  }</div>
+<p><span><span>运行结果相当于&lt;img src="test.jpg" alt="Test Image"/&gt;<br />
+  <br />
+  <strong>attr (key,value) 为第一个匹配对象的设置属性，key为属性名，value为属性值</strong></span></span></p>
+<div>&lt;img/&gt;&lt;ahref="#"onclick="js()"&gt;jQuery&lt;/a&gt;</div>
+<p><span><span>jQuery代码及功能</span></span></p>
+<div>functionjs(){<br />
+  $("img").attr(&ldquo;src&rdquo;,&rdquo;test.jpg&rdquo;);<br />
+  }</div>
+<p><span><span>运行结果相当于&lt;img src="test.jpg"/&gt;<br />
+  <br />
+  <strong>removeAttr (name) 将第一个匹配对象的某个属性移出</strong></span></span></p>
+<div>&lt;imgalt="test"/&gt;&lt;ahref="#"onclick="js()"&gt;jQuery&lt;/a&gt;</div>
+<p><span><span>jQuery代码及功能：</span></span></p>
+<div>functionjs(){<br />
+  $("img").removeAttr("alt");<br />
+  }</div>
+<p><span><span>运行结果相当于&lt;img /&gt;<br />
+  <br />
+  <strong>toggleClass (class) 将当前对象添加一个样式，不是当前对象则移出此样式，返回的是处理后的对象</strong></span></span></p>
+<div>&lt;p&gt;Hello&lt;/p&gt;&lt;pclass="selected"&gt;HelloAgain&lt;/p&gt;&lt;ahref="#"onclick="js()"&gt;jQuery&lt;/a&gt;</div>
+<p><span><span>$("p")的结果是返回对象 [&lt;p&gt;Hello&lt;/p&gt;,&lt;p class="selected"&gt;Hello Again&lt;/p&gt; ]<br />
+  $("p").toggleClass("selected")的结果是实返回对象 [ &lt;p class="selected"&gt;Hello&lt;/p&gt;, &lt;p&gt;Hello Again&lt;/p&gt; ]<br />
+  <br />
+  <span style="text-decoration: underline; font-size: 16px;"><strong>三：CSS操作</strong></span><br />
+  <strong><br />
+  </strong> 传统javascript对css的操作相当繁琐，比如&lt;div id="a" style="background:blue"&gt;css&lt;/div&gt;取它的background语法是 document.getElementById("a").style.background，而jQuery对css更方便的操作，$("#a").background()，$("#a").background(&ldquo;red&rdquo;)<br />
+  $("#a")得到jQuery对象[ &lt;div id="a" &hellip; /div&gt; ]<br />
+  $("#a").background()将取出该对象的background样式。<br />
+  $("#a").background(&ldquo;red&rdquo;)将该对象的background样式设为redjQuery提供了以下方法，来操作css<br />
+  <strong>background () background (val) color() color(val) css(name) css(prop) <br />
+  css(key, value)float() float(val) height() height(val) width() width(val) <br />
+  left() left(val) overflow() overflow(val) position() position(val) top() top(val)</strong><br />
+  <br />
+  这里需要讲解一下css(name) css(prop) css(key, value)，其他的看名字都知道什么作用了！</span></span></p>
+<div>&lt;divid="a"style="background:blue;color:red"&gt;css&lt;/div&gt;&lt;Pid="b"&gt;test&lt;/P&gt;</div>
+<p><span><span><br />
+  <strong>css(name) 获取样式名为name的样式</strong> <br />
+  $("#a").css("color") 将得到样式中color值red，("#a").css("background ")将得到blue<br />
+  <br />
+  <strong>css(prop) prop是一个hash对象，用于设置大量的css样式</strong><br />
+  $("#b").css({ color: "red", background: "blue" });<br />
+  最终效果是&lt;p id="b" style="background:blue; color:red"&gt;test&lt;/p&gt;,{ color: "red", background: "blue" }，hash对象，color为key，"red"为value，<br />
+  <br />
+  <strong>css(key, value) 用于设置一个单独得css样式<br />
+  </strong>$("#b").css("color","red");最终效果是&lt;p id="b" style="color:red"&gt;test&lt;/p&gt;<br />
+  <br />
+  <span style="text-decoration: underline; font-size: 16px;"><strong>四：JavaScript处理</strong></span><br />
+  <br />
+  <strong>$.browser() 判断浏览器类型，返回boolen值</strong></span></span></p>
+<div>$(function(){<br />
+  if($.browser.msie){<br />
+  alert("这是一个IE浏览器");}<br />
+  elseif($.browser.opera){<br />
+  alert("这是一个opera浏览器");}<br />
+  })</div>
+<p><span><span>当页面载入式判断浏览器类型，可判断的类型有msie、mozilla、opera、safari<br />
+  <br />
+  <strong>$.each(obj, fn) obj为对象或数组，fn为在obj上依次执行的函数，注意区分$().each()</strong></span></span></p>
+<div>$.each([0,1,2],function(i){alert("Item#"+i+":"+this);});</div>
+<p><span><span> 分别将0，1，2为参数，传入到function(i)中</span></span></p>
+<div>$.each({name:"John",lang:"JS"},function(i){alert("Name:"+i+",Value:"+this);</div>
+<p><span><span> { name: "John", lang: "JS" }为一个hash对象，依次将hash中每组对象传入到函数中<br />
+  <br />
+  <strong>$.extend(obj, prop) 用第二个对象扩展第一个对象</strong></span></span></p>
+<div>varsettings={validate:false,limit:5,name:"foo"};<br />
+  varoptions={validate:true,name:"bar"};<br />
+  $.extend(settings,options);</div>
+<p><span><span>执行后settings对象为{ validate: true, limit: 5, name: "bar" }<br />
+  可以用下面函数来测试</span></span></p>
+<div>$(function(){<br />
+  varsettings={validate:false,limit:5,name:"foo"};<br />
+  varoptions={validate:true,name:"bar"};<br />
+  $.extend(settings,options);<br />
+   $.each(settings,function(i){alert(i+"="+this);});<br />
+  })</div>
+<p><span><span><br />
+  <strong>$.grep(array,fn) 通过函数fn来过滤array，将array中的元素依次传给fn，fn必须返回一个boolen，如fn返回true，将被过滤</strong></span></span></p>
+<div>$(function(){<br />
+  vararr=$.grep([0,1,2,3,4],function(i){returni&gt;2;});<br />
+  $.each(arr,function(i){alert(i);});<br />
+  })</div>
+<p><span><span>我们可以看待执行$.grep后数组[0,1,2,3,4]变成[0，1]<br />
+  <br />
+  <strong>$.merge(first, second) 两个参数都是数组，排出第二个数组中与第一个相同的，再将两个数组合并</strong></span></span></p>
+<div>$(function(){<br />
+  vararr=$.merge([0,1,2],[2,3,4])<br />
+  $.each(arr,function(i){alert(i);});<br />
+  })</div>
+<p><span><span>可以看出arr的结果为[0,1,2,3,4]<br />
+  <br />
+  <strong>$.trim(str) 移出字符串两端的空格</strong><br />
+   $.trim(" hello, how are you? ")的结果是"hello, how are you?"<br />
+  <br />
+  <br />
+  <br />
+  <strong><span style="text-decoration: underline; font-size: 16px;">五：动态效果<br />
+  </span></strong><br />
+   在将这部分之前我们先看个例子，相信做网页的朋友都遇到n级菜单的情景，但点击某菜单按钮时，如果它的子菜单是显示的，则隐藏子菜单，如果子菜单隐藏，则显示出来，传统的javascript做法是先用getElementById取出子菜单所在容器的id，在判断该容器的style.display是否等于none，如果等于则设为block,如果不等于这设为none，如果在将效果设置复杂一点，当点击按钮时，不是忽然隐藏和显示子菜单，而是高度平滑的转变，这时就要通过setTimeout来设置子菜单的height了，再复杂一点透明度也平滑的消失和显现，这时显现下来需要编写很多代码，如果js基础不好的朋友可能只能从别人写好的代码拿过来修改了！jq实现上面效果只需要1句话就行，$("#a").toggle("slow"),,学完jQuery后还需要抄袭修改别人的代码吗？下面我们逐个介绍jQuery用于效果处理的方法。<br />
+  <br />
+  <strong>hide() 隐藏匹配对象</strong></span></span></p>
+<div>&lt;pid="a"&gt;HelloAgain&lt;/p&gt;&lt;ahref="#"onClick=&rsquo;("#a").hide()&rsquo;&gt;jQuery&lt;/a&gt;</div>
+<p><span><span>当点击连接时,id为a的对象的display变为none。<br />
+  <br />
+  <strong>show() 显示匹配对象<br />
+  <br />
+  hide(speed) 以一定的速度隐藏匹配对象，其大小（长宽）和透明度都逐渐变化到0，speed有3级("slow", "normal", "fast")，也可以是自定义的速度。<br />
+  <br />
+  show(speed) 以一定的速度显示匹配对象，其大小（长宽）和透明度都由0逐渐变化到正常<br />
+  <br />
+  hide(speed, callback) show(speed, callback) 当显示和隐藏变化结束后执行函数callback<br />
+  <br />
+  toggle() toggle(speed)如果当前匹配对象隐藏，则显示他们，如果当前是显示的，就隐藏，toggle(speed),其大小（长宽）和透明度都随之逐渐变化。</strong></span></span></p>
+<div><span>&lt;imgsrc="1.jpg"style="width:150px"/&gt;</span><br />
+  <span>&lt;ahref="#"onClick='$("img").toggle("slow")'&gt;jQuery&lt;/a&gt;</span></div>
+<p><span><span><br />
+  <strong>fadeIn(speeds) fadeOut(speeds) 根据速度调整透明度来显示或隐藏匹配对象，注意有别于hide(speed)和show(speed)，fadeIn和fadeOut都只调整透明度，不调整大小</strong></span></span></p>
+<div><span>&lt;imgsrc="1.jpg"style="display:none"/&gt;&lt;ahref="#"onClick='$("img").fadeIn("slow")'&gt;jQuery&lt;/a&gt;</span></div>
+<p><span><span>点击连接后可以看到图片逐渐显示。<br />
+  <br />
+  <strong>fadeIn(speed, callback) fadeOut(speed, callback) callback为函数，先通过调整透明度来显示或隐藏匹配对象，当调整结束后执行callback函数</strong></span></span></p>
+<div><span>&lt;imgsrc="1.jpg"/&gt;</span><br />
+  <span>&lt;ahref="#"onClick='$("img").fadeIn("slow",function(){alert("AnimationDone.");})'&gt;jQuery&lt;/a&gt;</span></div>
+<p><span><span>点击连接后可以看到图片逐渐显示,显示完全后弹出对话框<br />
+  <br />
+  <strong>fadeTo(speed, opacity, callback) 将匹配对象以speed速度调整倒透明度opacity，然后执行函数callback。Opacity为最终显示的透明度(0-1).</strong></span></span></p>
+<div><span>&lt;imgsrc="1.jpg"/&gt;&lt;br&gt;</span><br />
+  <span>&lt;ahref="#"onClick='$("img").fadeTo("slow",0.55,function(){alert("AnimationDone.");})'&gt;jQuery&lt;/a&gt;</span></div>
+<p><span><span>大家可以看一下自己看看效果，如果不用jQuery，编写原始javascript脚本可能很多代码！<br />
+  <br />
+  <strong>slideDown(speeds) 将匹配对象的高度由0以指定速率平滑的变化到正常！</strong></span></span></p>
+<div><span>&lt;imgsrc="1.jpg"style="display:none"/&gt;</span><br />
+  <span>&lt;ahref="#"onClick='$("img").slideDown("slow")'&gt;jQuery&lt;/a&gt;</span></div>
+<p><span><span><br />
+  <strong>slideDown(speeds,callback) 将匹配对象的高度由0变化到正常！变化结束后执行函数callback<br />
+  </strong><br />
+  <strong>slideUp("slow") slideUp(speed, callback) 匹配对象的高度由正常变化到0<br />
+  </strong><br />
+  <strong>slideToggle("slow") 如果匹配对象的高度正常则逐渐变化到0，若为0，则逐渐变化到正常</strong><br />
+  <br />
+  <br />
+  <span style="text-decoration: underline; font-size: 16px;"><strong>六：事件处理<br />
+  </strong></span><br />
+  <strong>hover(Function, Function) 当鼠标move over时触发第一个function，当鼠标move out时触发第二个function</strong><br />
+  样式：&lt;style&gt;.red{color:#FF0000}&lt;/style&gt;<br />
+  Html代码： &lt;div id="a"&gt;sdf&lt;/div&gt;<br />
+  jQuery代码及效果</span></span></p>
+<div>$(function(){<br />
+  $("#a").hover(function(){$(this).addClass("red");},<br />
+   function(){$(this).removeClass("red");<br />
+   });<br />
+  })</div>
+<p><span><span>最终效果是当鼠标移到id为a的层上时图层增加一个red样式，离开层时移出red样式<br />
+  <br />
+  <strong>toggle(Function, Function) 当匹配元素第一次被点击时触发第一个函数，当第二次被点击时触发第二个函数</strong><br />
+  样式：&lt;style&gt;.red{color:#FF0000}&lt;/style&gt;<br />
+  Html代码： &lt;div id="a"&gt;sdf&lt;/div&gt;<br />
+  jQuery代码及效果</span></span></p>
+<div>$(function(){<br />
+  $("#a").toggle(function(){$(this).addClass("red");},<br />
+   function(){$(this).removeClass("red");<br />
+   });<br />
+  })</div>
+<p><span><span>最终效果是当鼠标点击id为a的层上时图层增加一个red样式，离开层时移出red样式<br />
+  <br />
+  <strong>bind(type, fn) 用户将一个事件和触发事件的方式绑定到匹配对象上。<br />
+  trigger(type) 用户触发type形式的事件。$("p").trigger("click")<br />
+  </strong>还有：<strong>unbind() unbind(type) unbind(type, fn)<br />
+  </strong><br />
+  <strong>Dynamic event(Function) 绑定和取消绑定提供函数的简捷方式</strong><br />
+  例：</span></span></p>
+<div>$("#a").bind("click",function(){<br />
+   $(this).addClass("red");<br />
+  })</div>
+<p><span><span>也可以这样写：</span></span></p>
+<div>$("#a").click(function(){<br />
+   $(this).addClass("red");<br />
+  });</div>
+<p>最终效果是当鼠标点击id为a的层上时图层增加一个red样式，<br />
+  <br />
+  <strong>jQuery提供的函数</strong> <br />
+  <strong>用于browers事件</strong><br />
+  <strong>error(fn) load(fn) unload(fn) resize(fn) scroll(fn)<br />
+  </strong><br />
+  <strong>用于form事件</strong><br />
+  <strong>change(fn) select(fn) submit(fn)</strong><br />
+  <br />
+  <strong>用于keyboard事件</strong><br />
+  <strong>keydown(fn) keypress(fn) keyup(fn)<br />
+  </strong><br />
+  <strong>用于mouse事件</strong><br />
+  <strong>click(fn) dblclick(fn) mousedown(fn) mousemove(fn)<br />
+  mouseout(fn) mouseover(fn) mouseup(fn)</strong></p>
+<p><strong>用于UI事件<br />
+  blur(fn) focus(fn)</strong><br />
+  <br />
+  以上事件的扩展再扩展为5类<br />
+  举例，click(fn) 扩展 click() unclick() oneclick(fn) unclick(fn)<br />
+  click(fn)：增加一个点击时触发某函数的事件<br />
+  click()：可以在其他事件中执行匹配对象的click事件。<br />
+  unclick ()：不执行匹配对象的click事件。<br />
+  oneclick(fn)：只增加可以执行一次的click事件。<br />
+  unclick (fn)：增加一个点击时不触发某函数的事件。<br />
+  上面列举的用于browers、form、keyboard、mouse、UI的事件都可以按以上方法扩展。<br />
+  <br />
+  <br />
+  <span style="text-decoration: underline; font-size: 16px;"><strong>七：Ajax支持<br />
+  </strong></span><strong><br />
+  </strong>通用方式：<br />
+  <strong>$.ajax(prop) 通过一个ajax请求，回去远程数据，prop是一个hash表，它可以传递的key/value有以下几种</strong>。<br />
+  (String)type：数据传递方式(get或post)。<br />
+  ((String)url：数据请求页面的url<br />
+  ((String)data：传递数据的参数字符串，只适合post方式<br />
+  ((String)dataType：期待数据返回的数据格式(例如 "xml", "html", "script",或 "json")<br />
+  ((Boolean)ifModified： 当最后一次请求的相应有变化是才成功返回，默认值是false<br />
+  ((Number)timeout:设置时间延迟请求的时间。可以参考$.ajaxTimeout<br />
+  ((Boolean)global：是否为当前请求触发ajax全局事件，默认为true<br />
+  ((Function)error：当请求失败时触发的函数。<br />
+  ((Function)success：当请求成功时触发函数<br />
+  ((Function)complete：当请求完成后出发函数<br />
+  jQuery代码及说明</p>
+<div>$.ajax({url:"ajax.htm",<br />
+  success:function(msg){<br />
+  $(div"#a").html(msg);<br />
+  }<br />
+  });</div>
+<p><span><span>将ajax.htm返回的内容作为id为a的div内容</span></span></p>
+<div>$.ajax({url:"ajax.aspx",<br />
+   type:"get",<br />
+   dataType:"html",<br />
+  data:"name=John&amp;location=Boston",<br />
+  success:function(msg){<br />
+   $("#a").html(msg);<br />
+   }<br />
+   });</div>
+<p>用get方式向ajax.aspx页面传参数，并将返回内容负给id为a的对象。<br />
+  <br />
+  <strong>$.ajaxTimeout(time)</strong> <strong>设置请求结束时间</strong><br />
+   $.ajaxTimeout( 5000 )<br />
+  <br />
+  其它简化方式：</p>
+<p><strong>$.get(url, params, callback) 用get方式向远程页面传递参数，请求完成后处理函数，除了url外，其它参数任意选择</strong>！</p>
+<div>$.get("ajax.htm",function(data){$("#a").html(data)})</div>
+<div>$.get( "ajax.asp",<br />
+   {name:"young",age:"25"},<br />
+   function(data){alert("DataLoaded:"+data);}<br />
+   )</div>
+<p><span><span><strong>$.getIfModified(url, params, callback) 用get方式向远程页面传递参数，从最后一次请求后如果数据有变化才作出响应，执行函数callback<br />
+  $.getJSON(url, params, callback) 用get方式向远程json对象传递参数，请求完成后处理函数callback。<br />
+  $.getScript(url, callback) 用get方式载入并运行一个远程javascript文件。请求完成后处理函数callback。<br />
+  $.post(url, params, callback) 用post方式向远程页面传递参数，请求完成后处理函数callback<br />
+  load(url, params, callback) 载入一个远程文件并载入页面DOM中，并执行函数callback</strong></span></span></p>
+<div>$("#a").load("ajax.htm",function(){alert("loadisdone");});</div>
+<p><span>向ajax.htm页面发出请求，将返回结果装入id为a的内容中，然后再执行函数callback。<br />
+  <strong>loadIfModified(url, params, callback) 用get方式向远程页面传递参数，从最后一次请求后如果数据有变化才作出响应，将返回结果载入页面DOM中，并执行函数callback<br />
+  ajaxStart(callback) 当ajax请求发生错误是时执行函数callback<br />
+  ajaxComplete(callback) 当ajax请求完成时执行函数callback<br />
+  ajaxError(callback) 当ajax请求发生错误时执行函数callback<br />
+  ajaxStop(callback) 当ajax请求停止时执行函数callback<br />
+  ajaxSuccess(callback) 当ajax请求成功时执行函数callback<br />
+  <br />
+  <br />
+</div>
+
+
+ 
+
+</body>
+</html>
