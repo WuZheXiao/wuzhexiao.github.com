@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        #box {
+            position: relative;
+            border: 1px solid #0cf;
+            background: #0cf;
+            width: 960px;
+            height: 400px;
+        }
+        #box ul {
+            width: 880px;
+            height: 400px;
+            position: absolute;
+            left: 40px;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #box li a {
+            outline: none;
+        }
+        #box li a img {
+        	width: 300px;
+        	height: 200px;
+            vertical-align: middle;
+            border: none;
+        }
+        #box .controls {
+            position: absolute;
+            top: 180px;
+            display: block;
+            width: 40px;
+            height: 40px;
+            outline: none;
+
+        }
+        #box .previous {
+            left: 0;
+            background-position: -4px 0;
+            background:url(img/上一张2.png);
+            background-repeat: no-repeat;
+        }
+        #box .next {
+        
+           left: 930px;
+
+         background-image: url(img/下一张.png); 
+          background-repeat: no-repeat;
+        }
+    </style>
+   <script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    	//1、等待图片加载完成后执行
+    	//获取图片宽高
+        $(window).load(function(){
+        	//div #box
+            var $gallery = $('#box'),
+                    $frame = $gallery.find('ul'),//ul
+                    _frameHeight = $frame.height(),//ul 宽高
+                    _frameWidth = $frame.width(),
+                    $li = $frame.find('li'),//lis
+                    $img = $li.find('img'),//imgs
+                    _imgLength = $img.length,//图片们长度
+                    _imgWidth = $img.width(),//图片们宽高
+                    _imgHeight = $img.height(),
+                    _topDiff = (_frameHeight - _imgHeight) / 2,//top值
+                    _animateSpeed = 200;//动画速度
+
+			//2、设置图片大小及位置
+			//图片缩放比例
+            var resizeRatio = [ 0.6, 0.7, 0.8, 1, 0.8, 0.7, 0.6],
+                    liCss = [],//存储每一个li的css样式
+                    _totalWidth = 0;//图片总宽
+
+			//缩放后的图片宽
+            var _m = 0;
+            $img.each(function(i){
+                _m += $(this).width() * resizeRatio[i];
+            });
+            var _leftDiff = Math.ceil((_m - _frameWidth) / (_imgLength - 1));
+
+            $li.each(function(i){
+                var $this = $(this),
+                        _width = _imgWidth * resizeRatio[i],
+                        _height = _imgHeight * resizeRatio[i];
+
+                liCss.push({
+                    height: _height,
+                    width: _width,
+                    left: _totalWidth  + (i == _imgLength - 1 ? 1 : 0),
+                    top: _topDiff + (_imgHeight - _height) / 2,
+                    zIndex: resizeRatio[i] * 10
+                });
+
+                $this.css(liCss[liCss.length-1]).css({
+                    position: 'absolute',
+                    border: '1px solid white'
+                }).data('_index', i).find('img').css({
+                    width: '100%',
+                    height: '100%'
+                });
+
+                _totalWidth += _width - _leftDiff;
+            });
+
+            $gallery.on('click', '.controls', function(){
+                var $button = $(this);
+
+                $li.each(function(){
+                    var $this = $(this),
+                            _index = $this.data('_index');
+
+                    _index = ($button.hasClass('next') ? (_index - 1 + _imgLength) : (_index + 1)) % _imgLength;
+                    $this.data('_index', _index);
+
+                    $this.stop(false, true).animate(liCss[_index], _animateSpeed);
+                });
+
+                return false;
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div id="box">
+    <a href="#previous" class="controls previous" rel="previous"></a>
+    <a href="#next" class="controls next" rel="next"></a>
+    <ul>
+        <li><a href="#" title="Slide 1"><img src="img/04v58PICESm_1024.jpg" /></a></li>
+        <li><a href="#" title="Slide 2"><img src="img/26eea19e66edc0b186bd574e8a3c8675.jpg" /></a></li>
+        <li><a href="#" title="Slide 3"><img src="img/u=1333912589,3020911558&fm=23&gp=0.jpg" /></a></li>
+        <li><a href="#" title="Slide 4"><img src="img/u=1518531634,917906026&fm=23&gp=0.jpg" /></a></li>
+        <li><a href="#" title="Slide 5"><img src="img/u=512206046,2695174116&fm=23&gp=0.jpg" /></a></li>
+        <li><a href="#" title="Slide 6"><img src="img/u=1518531634,917906026&fm=23&gp=0.jpg" /></a></li>
+       <li><a href="#" title="Slide 1"><img src="img/04v58PICESm_1024.jpg" /></a></li>
+    </ul>
+</div>
+</body>
+</html>

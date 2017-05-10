@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+			width: 200px;
+			height: 200px;
+			background-color: aqua;
+			}
+		</style>
+		<script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<button id="x_btn">显示</button>
+		<button id="y_btn">隐藏</button>
+	   <button id="t_btn">切换</button>
+	   <button id="su_btn">slideup</button>
+		<button id="sd_btn">slidedown</button>
+	   <button id="st_btn">slide toggle</button>
+	   <button id="fd_btn">fadein</button>
+	   <button id="fo_btn">fadeout</button>
+	    <button id="ft_btn">fadetoggle</button>
+	   <button id="fdto_btn">fadeto</button>
+	      <button id="fdtog_btn">fadetotoggle</button>
+		<div id="box">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$("#y_btn").click(function(){
+				$("#box").hide();//hide()隐藏
+			})
+			$("#x_btn").click(function(){
+				$("#box").show();//show()显示
+			})
+			$("#t_btn").click(function(){
+				$("#box").toggle();//toggle()切换
+			})
+			$("#su_btn").click(function(){
+				$("#box").slideUp();//slideUp()高度动态变化向上
+			})
+			$("#sd_btn").click(function(){
+				$("#box").slideDown();//slideDown()高度动态变化向下
+			})
+			$("#st_btn").click(function(){
+				$("#box").slideToggle();//slideToggle()()切换
+			})
+			$("#fd_btn").click(function(){
+				$("#box").fadeIn();//fadeIn()淡入淡出
+			})
+			$("#fo_btn").click(function(){
+				$("#box").fadeOut();//fadeout()淡入淡出
+			})
+			$("#ft_btn").click(function(){
+				$("#box").fadeToggle();//fadeout()淡入淡出切换
+			})
+			$("#fdto_btn").click(function(){
+				$("#box").fadeTo("fast","0.1");//fadeto()透明度
+			})
+			$("#fdtog_btn").click(function(){
+				$("#box").fadeToggle("fast","0.1");//fadeto()透明度
+			})
+		})
+	</script>
+</html>

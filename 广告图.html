@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			a{
+				text-decoration: none;
+				color: #000000;
+			}
+			a:hover{
+				background-color: aquamarine;
+			}
+			img{
+				width: 276px;
+				height: 99px;
+			}
+			ul{
+			
+				list-style: none;
+			}
+			#box{
+				width: 480px;
+				height: 400px;
+			}
+			#ul1{
+				float: left;
+			}
+			#ul2{
+				
+				float:right;
+			}
+			#center{
+				float: left;
+			}
+			#center>li{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul id="ul1">
+				<li><a href="">商品1</a></li>
+				<li><a href="">商品2</a></li>
+				<li><a href="">商品3</a></li>
+				<li><a href="">商品4</a></li>
+				<li><a href="">商品5</a></li>
+			</ul>
+			
+			<ul id="center">
+				<li><a href=""><img src="img/04v58PICESm_1024.jpg"/></a></li>
+				<li><a href=""><img src="img/26eea19e66edc0b186bd574e8a3c8675.jpg"/></a></li>
+				<li><a href=""><img src="img/1.png"/></a></li>
+				<li><a href=""><img src="img/04v58PICESm_1024.jpg"/></a></li>
+				<li><a href=""><img src="img/26eea19e66edc0b186bd574e8a3c8675.jpg"/></a></li>
+				<li><a href=""><img src="img/1.png"/></a></li>
+				<li><a href=""><img src="img/04v58PICESm_1024.jpg"/></a></li>
+				<li><a href=""><img src="img/26eea19e66edc0b186bd574e8a3c8675.jpg"/></a></li>
+				<li><a href=""><img src="img/1.png"/></a></li>
+				<li><a href=""><img src="img/04v58PICESm_1024.jpg"/></a></li>
+			</ul>
+			<ul id="ul2">
+				<li><a href="">商品1</a></li>
+				<li><a href="">商品2</a></li>
+				<li><a href="">商品3</a></li>
+				<li><a href="">商品4</a></li>
+				<li><a href="">商品5</a></li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$("#ul1 li").mouseenter(function(){
+				$("#center li").eq($(this).index()).show().siblings().hide();
+			});
+			$("#ul2 li").mouseenter(function(){
+				$("#center li").eq($(this).index()).show().siblings().hide();
+			});
+			
+		});
+	</script>
+</html>
