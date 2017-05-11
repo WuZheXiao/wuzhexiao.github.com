@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>原生和jQuery的ajax用法</title>
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=m_FXmwz3wxZoecUwNEK23PAzc-j9vbX_C6MblJ5ouMc1"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/CodingLife/bundle-CodingLife.css?v=s0uk-4nDGKcoZzCtu5RG1QHcsOLuk4tFWHoK2TgaeRE1"/>
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="/skins/CodingLife/bundle-CodingLife-mobile.css?v=svj45cmFr8dtGVB0Cq4o-6MjM6Bz3Y76mAYaZnSJon01"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/jach/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/jach/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/jach/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/script/jquery.js" type="text/javascript"></script>  
+<style type="text/css">
+	#box{
+		width: 600px;
+		margin: auto;
+	}
+</style>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	
+<!--done-->
+
+<h2></h2>
+<div id="box">
+	<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+		原生和jQuery的ajax用法
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><p>form数据的序列化：</p>
+<div class="cnblogs_code">
+<pre>$('#submit').click(<span style="color: #0000ff;">function</span><span style="color: #000000;">(){
+    $(</span>'#form').serialize();        <span style="color: #008000;">//</span><span style="color: #008000;">会根据input里面的name，把数据序列化成字符串；eg：name=yang</span>
+    $('#form').serializeArray();    <span style="color: #008000;">//</span><span style="color: #008000;">会根据input里面的name，把数据序列化成数组；eg：[object]<br />　　//注意：没有name会获取不到值<br /></span>
+
+    <span style="color: #008000;">//</span><span style="color: #008000;">下面两种不是jQuery的方法</span>
+    JSON.parse()    <span style="color: #008000;">//</span><span style="color: #008000;">json字符串转化为json对象</span>
+    JSON.stringify()    <span style="color: #008000;">//</span><span style="color: #008000;">json对象转化为json字符串</span>
+});</pre>
+</div>
+<p>jQuery的ajax方法：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">$.ajax({
+    url:</span>'/comm/test1.php'<span style="color: #000000;">,
+    type:</span>'POST', <span style="color: #008000;">//</span><span style="color: #008000;">GET</span>
+    async:<span style="color: #0000ff;">true</span>,    <span style="color: #008000;">//</span><span style="color: #008000;">或false,是否异步</span>
+<span style="color: #000000;">    data:{
+        name:</span>'yang',age:25<span style="color: #000000;">
+    },
+    timeout:</span>5000,    <span style="color: #008000;">//</span><span style="color: #008000;">超时时间</span>
+    dataType:'json',    <span style="color: #008000;">//</span><span style="color: #008000;">返回的数据格式：json/xml/html/script/jsonp/text</span>
+    beforeSend:<span style="color: #0000ff;">function</span><span style="color: #000000;">(xhr){
+        console.log(xhr)
+        console.log(</span>'发送前'<span style="color: #000000;">)
+    },
+    success:</span><span style="color: #0000ff;">function</span><span style="color: #000000;">(data,textStatus,jqXHR){
+        console.log(data)
+        console.log(textStatus)
+        console.log(jqXHR)
+    },
+    error:</span><span style="color: #0000ff;">function</span><span style="color: #000000;">(xhr,textStatus){
+        console.log(</span>'错误'<span style="color: #000000;">)
+        console.log(xhr)
+        console.log(textStatus)
+    },
+    complete:</span><span style="color: #0000ff;">function</span><span style="color: #000000;">(){
+        console.log(</span>'结束'<span style="color: #000000;">)
+    }
+})</span></pre>
+</div>
+<p>原生的ajax方法：</p>
+<div class="cnblogs_code">
+<pre>$('#send').click(<span style="color: #0000ff;">function</span><span style="color: #000000;">(){
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">请求的5个阶段，对应readyState的值</span>
+        <span style="color: #008000;">//</span><span style="color: #008000;">0: 未初始化，send方法未调用；</span>
+        <span style="color: #008000;">//</span><span style="color: #008000;">1: 正在发送请求，send方法已调用；</span>
+        <span style="color: #008000;">//</span><span style="color: #008000;">2: 请求发送完毕，send方法执行完毕；</span>
+        <span style="color: #008000;">//</span><span style="color: #008000;">3: 正在解析响应内容；</span>
+        <span style="color: #008000;">//</span><span style="color: #008000;">4: 响应内容解析完毕；</span>
+
+    <span style="color: #0000ff;">var</span> data = 'name=yang'<span style="color: #000000;">;
+    </span><span style="color: #0000ff;">var</span> xhr = <span style="color: #0000ff;">new</span> XMLHttpRequest();        <span style="color: #008000;">//</span><span style="color: #008000;">创建一个ajax对象</span>
+    xhr.onreadystatechange = <span style="color: #0000ff;">function</span>(event){    <span style="color: #008000;">//</span><span style="color: #008000;">对ajax对象进行监听</span>
+        <span style="color: #0000ff;">if</span>(xhr.readyState == 4){    <span style="color: #008000;">//</span><span style="color: #008000;">4表示解析完毕</span>
+            <span style="color: #0000ff;">if</span>(xhr.status == 200){    <span style="color: #008000;">//</span><span style="color: #008000;">200为正常返回</span>
+<span style="color: #000000;">                console.log(xhr)
+            }
+        }
+    };
+    xhr.open(</span>'POST','url',<span style="color: #0000ff;">true</span>);    <span style="color: #008000;">//</span><span style="color: #008000;">建立连接，参数一：发送方式，二：请求地址，三：是否异步，true为异步</span>
+    xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');    <span style="color: #008000;">//</span><span style="color: #008000;">可有可无</span>
+    xhr.send(data);        <span style="color: #008000;">//</span><span style="color: #008000;">发送</span>
+});</pre>
+</div>
+<p>&nbsp;</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		</div>
+
+	<script type="text/javascript">var allowComments=true,cb_blogId=295624,cb_entryId=5709175,cb_blogApp=currentBlogApp,cb_blogUserGuid='e80ff1ec-2108-e611-9fc1-ac853d9f53cc',cb_entryCreatedDate='2016/7/26 22:20:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='cnblogs_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<div id='cnblogs_c2' class='c_ad_block'></div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+</div>
+
+
+</body>
+</html>
