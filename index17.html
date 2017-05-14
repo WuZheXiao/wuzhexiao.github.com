@@ -1,0 +1,254 @@
+
+<!DOCTYPE >
+<html >
+<head>
+<meta charset="UTF-8"/>
+<title>HTML5</title>
+
+<link href="/templets/default/style/dedecms.css" rel="stylesheet" media="screen" type="text/css" />
+<style type="text/css">
+	#box{
+		width: 600px;
+		margin: auto;
+	}
+</style>
+</head>
+<body class="articleview">
+
+
+<div class="header_b min-width clear clr"> </div>
+
+<!-- /header -->
+
+<div id="box">
+	<div class="viewbox">
+  <div class="title">
+   <h2>HTML5</h2>
+  </div>
+  <!-- /title -->
+   <script src="/plus/count.php?view=yes&aid=176&mid=1" type='text/javascript' language="javascript"></script>
+   次</div>
+  <!-- /info -->
+  <div class="content">
+      <p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">HTML5被认为是HTML、CSS和JavaScript结合的产物，在规范下组成一个整体，HTML负责结构，CSS负责呈现，而JavaScript则负责其余一些仍极为重要的工作。&nbsp;<br />
+	结构是HTML5文档的核心部分，提供了分配静态或动态内容所必须的元素，也是应用程序的基本平台。现在，结构必须提供外观、组织和灵活性。HTML文档是严格组织的，文档的每个部分都放在特定的标记中进行声明并加以区分。</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>1.全局结构：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>1）Doctype：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">首先，需要指定要创建的文档类型。在HTML5中非常简单：&nbsp;<br />
+	&lt;!DOCTYPE html&gt;&nbsp;<br />
+	这行代码必须是文件的第一行，前面不能有任何空格或空行，这是激活标准模式的一种方式。如果浏览器支持HTML5，它会强制要求浏览器解释HTML5，如果浏览器不支持HTML5则忽略。大多数HTML标记都是成对出现的，一个是开始标记，另一个是结束标记，内容放在这两个标记之间。</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>2）&lt;html&gt;：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">声明文档类型后，必须建立HTML树结构。树的根元素是&lt;html&gt;元素，所有的HTML代码都要放在这个元素中。其中，&lt;html lang=&quot;en&quot;&gt;表示代码的开始，而&lt;/html&gt;则表示结束，所有代码都需要插入这两个标记之间。&nbsp;<br />
+	&lt;html&gt;标记中的lang属性，只有在HTML5中才需要指定，此属性定义了创建文档内容的人类语言。&lt;html&gt;标记之间的HTML代码主要分成两部分，第一部分是文档头，而第二部分是文档正文。</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>3）&lt;head&gt;：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">在&lt;head&gt;标记内，可以定义网页的标题，声明字符编码方式，提供一些关于文档的信息，以及加入一些外部文件，包括用于显示页面的样式表、脚本或者图像。除了标题与图像外，文档中位于&lt;head&gt;标记之间的其他信息通常都是不可见的。</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>4）&lt;body&gt;：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">正文是文档的可见部分，位于&lt;body&gt;标记之间，是HTML文档的主要组成部分。</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>5）&lt;meta&gt;：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">Meta标记规定文字在屏幕上的显示方式，是文档头的一部分。这个标记有一些简化。&nbsp;<br />
+	&lt;meta charset=&quot;utf-8&quot;&nbsp;/&gt;&nbsp;<br />
+	&lt;meta name=&quot;description&quot;&nbsp;content=&quot;This is an HTML5 example&quot;&nbsp;/&gt;&nbsp;<br />
+	&lt;meta name=&quot;keywords&quot;&nbsp;content=&quot;HTML5, CSS3, JavaScript&quot;&nbsp;/&gt;&nbsp;<br />
+	其中，charset属性定义文档字符编码，name属性规定了元数据类型，而content则声明它的值。&nbsp;<br />
+	文档可能会用到几种用于声明一般信息的meta标记，这些信息不会显示在浏览器的可见窗口中，仅供搜索引擎和设备使用，可能需要预览或汇总文档的相关数据。&nbsp;<br />
+	在HTML5中，自动闭合标记不一定需要在末尾添加斜线，但是考虑到兼容性，推荐添加自动闭合符号。</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>6）&lt;title&gt;：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">&lt;title&gt;标记可用于指定文档标题。&lt;title&gt;标记之间的文字是整个文档的标题，通常这些文字显示在浏览器的窗口顶部。</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>7）&lt;link&gt;：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">这个元素一般用于添加文档中外部文件的样式、脚本、图像或图标等文件。最常见用途是插入外部CSS文件的样式。&nbsp;<br />
+	&lt;link rel=&quot;stylesheet&quot;&nbsp;href=&quot;mystyles.css&quot;&gt;&nbsp;<br />
+	其中，属性rel表示关系，即文档与所添加文件的关系。&nbsp;<br />
+	在HTML5中，不需要指定所插入样式表的类型，因此不需要添加type属性，只需要指定rel和href属性就能够添加样式文件。</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>2. 正文结构：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">正文是&lt;body&gt;标记之间的代码，包含文档的可见部分，也就是生成网页的代码。&nbsp;<br />
+	HTML提供了多种创建和组织文档正文信息的方法，主要是&lt;table&gt;和&lt;div&gt;。HTML5增加了一些新元素，可以帮助确定文档各部分的作用和主体组织。&nbsp;<br />
+	大多数网站布局都由页头、导航栏、主信息、边栏、页脚等部分组成。</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>1）&lt;hearder&gt;：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">HTML5引入的一个新元素是&lt;header&gt;。&lt;header&gt;也提供一些介绍性信息，如标题、副标题或logo，但只用于正文或正文的节。插入&lt;header&gt;元素，表示文档正文和可见内容的开始。</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>2）&lt;nav&gt;：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">导航栏是通过HTML5的&lt;nav&gt;标记生成的，它可以插入&lt;header&gt;元素中，也可以插入正文的其他节之中。&lt;nav&gt;可以包含一些导航元素，如主菜单或主导航块，而且是其正确的用法。&nbsp;<br />
+	&lt;nav&gt;标记之间，通过使用&lt;ul&gt;和&lt;li&gt;元素来创建列表。&lt;ul&gt;元素定义一个列表，其中可以嵌套多个&lt;li&gt;标记，加入不同的文字表示菜单选项。</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>3）&lt;section&gt;：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">主信息栏包含文档中最重要的信息，这些信息可能有不同的表现形式，例如划分为几个块或几列。由于这些列和块使用很普遍，因此HTML5将这些节直接定义为&lt;section&gt;。</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>4）&lt;aside&gt;：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">在典型的网站布局中，主信息栏旁边有一个边栏。这是一个列或节，通常包含与主信息相关的数据，HTML5使用&lt;aside&gt;标记这部分信息。&nbsp;<br />
+	&lt;aside&gt;元素可以位于页面的左边或右边，并没有预定义的位置。&lt;aside&gt;元素可位于布局的任意部分，用于表示任何非文档主要内容的部分，可以在&lt;section&gt;元素中加入一个&lt;aside&gt;元素。</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>5）&lt;footer&gt;：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">创建完整的HTML5文档元素结构，还需要页尾，这个部分一般用于作者或公司的一般信息，如版权、条款等。&nbsp;<br />
+	通常&lt;footer&gt;元素表示文档正文的结尾，但文档中可以使用多个&lt;footer&gt;标记，表示多个节的结尾。</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>3.正文内部结构：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">前面介绍的HTML5元素实现布局的节，标记的是HTML文档结构，都具有独特的内在用途，但是对网站来说，最重要的是节中的内容。&nbsp;<br />
+	文档的内容，包括各种可视化元素，如标题、文字、图像、视频和其他交互应用，需要区分这些元素和建立元素之间的关系。</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>1)&lt;article&gt;：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">&lt;article&gt;标记位于&lt;section&gt;标记之间，一般用来表示新文章。&lt;article&gt;元素可以包含独立的内容项，如一个论文帖、一篇杂志文章、一篇博客文章、用户评论等。这些元素可以将信息各部分进行任意分组，而不论信息原来的性质。&nbsp;<br />
+	作为文档的独立部分，每一个&lt;article&gt;元素的内容都具有独立的结构。为了定义这个结构，可以利用&lt;header&gt;和&lt;footer&gt;标记的丰富功能，这些标记是可移植的，不仅仅能够用于正文中，也能够用于文档的各个节中。</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>2)&lt;hgroup&gt;：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">可以使用H标记创建页面标题，&lt;h1&gt;、&lt;h2&gt;、&lt;h3&gt;、&lt;h4&gt;、&lt;h5&gt;和&lt;h6&gt;，但出于内部处理的考虑，以及避免在文档解析时产生多个节或子节，这些标记必须分组。HTML5中使用&lt;hgroup&gt;元素。&nbsp;<br />
+	H标记必须保持层次结构，这意味着必须先使用&lt;h1&gt;标记声明标题，然后使用&lt;h2&gt;声明副标题，依次类推。HTML5允许重用H标签，在文档各个节重复创建这种层次关系。&nbsp;<br />
+	如果有标题和副标题，或者在同一个&lt;header&gt;元素中加入多个H标题，那么就需要使用&lt;hgroup&gt;元素。</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>3)&lt;figure&gt;和&lt;figcaption&gt;：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">&lt;figure&gt;标记用于更具体地声明文档的内容。比如在正文之后插入了一幅图像，&lt;figure&gt;可以实现可视化补充，以区分它们与其他重要信息的关系。&lt;figure&gt;元素中还有一个&lt;figcaption&gt;元素，用以显示与&lt;figure&gt;相关的标题，并且在元素及其内容之间建立关系。</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>4.新增的元素：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>1)结构片段：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">&middot;artical：标识独立的主体内容区域&nbsp;<br />
+	&middot;aside：标识非主体内容区域&nbsp;<br />
+	&middot;section：标识文档的小节或部分&nbsp;<br />
+	&middot;footer：标识页面的页脚，或内容区块的脚注&nbsp;<br />
+	&middot;header：标识页面的页眉，或内容区块的标头&nbsp;<br />
+	&middot;nav：标识页面的导航区块</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>2)进度信息：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">&middot;meter：根据value属性赋值和最大、最小值的度量进行显示的进度条形图&nbsp;<br />
+	&middot;progress：标识任务进度显示的进度条</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>3)交互性元素：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">&middot;command：标识一个目录元素，当且仅当这个元素出现在&lt;menu&gt;中才显示，否则只作为键盘快捷方式的一个载体&nbsp;<br />
+	&middot;datalist：标识一个选项组，与input元素配合使用该元素，来定义input的可能值</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>4)内嵌应用元素及辅助元素：</strong></span></span></p>
+<p align="justify" style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">&middot;audio：定义声音&nbsp;<br />
+	&middot;video：定义视频&nbsp;<br />
+	&middot;source：为媒介元素（如video和audio）定义媒介资源&nbsp;<br />
+	&middot;track：为诸如video元素之类的媒介规定外部文本轨道&nbsp;<br />
+	&middot;canvas：定义图形，比如图表和其他图像，只是一个容器，要使用脚本绘制图形&nbsp;<br />
+	&middot;embed：标识来自外部的互动内容或插件</span></span></p>
+<p align="justify" style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>5)在文档和应用中使用的元素：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">&middot;detial：标识描述文档或文档某个部分的细节&nbsp;<br />
+	&middot;summary：标识&lt;detail&gt;元素的标题&nbsp;<br />
+	&middot;figcaption：标识figure元素的标题&nbsp;<br />
+	&middot;figure：标识一块独立的流内容，包含图像、图表、照片、代码等&nbsp;<br />
+	&middot;hgroup：标识文档或内容的多个标题，用于将h1~h6元素打包</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>6)Ruby标记：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">&middot;ruby：标识ruby注释，在东亚使用，显示的是东亚字符的发音&nbsp;<br />
+	&middot;rp：在ruby注释中使用，以定义不支持ruby元素的浏览器所显示的内容&nbsp;<br />
+	&middot;rt：标识字符的解释或发音</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>7)文本和文本标记元素：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">&middot;bdi：允许设置一段文本，使其脱离父元素的文本方向设置&nbsp;<br />
+	&middot;mark：标识高亮度显示的文本&nbsp;<br />
+	&middot;time：标识日期或时间&nbsp;<br />
+	&middot;output：标识一个输出的结果</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>8)其他：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">&middot;keygen：标识表单密钥生成器元素。当提交表单时，此私钥存储在本地，公钥发送到服务器&nbsp;<br />
+	&middot;wbr：标识单词中适当的换行位置，可以用此标记为一个长单词指定合适的换行位置</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>5.废弃的元素：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>1)能使用CSS方案替代的元素：</strong></span></span></p>
+<p align="justify" style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">Basefont、big、center、font、s、strike、tt、u</span></span></p>
+<p align="justify" style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>2)不再支持frame框架，但支持iframe框架</strong></span></span></p>
+<p align="justify" style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>3)已有替代的其他废弃元素：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">Applet|embed和object、bgsound|audio、marquee|JavaScript编程、rb|ruby、acronym|abbr、dir|ul、isindex|form与input结合、listing|pre、xmp|code、nextid|GUIDS、plaintext|MIME类型&ldquo;text/plain&rdquo;</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>6.新元素与旧元素的新特性：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">HTML5的设计目标是简化和优化代码结构。为了实现这些目标，HTML5增加了一些标记和属性，还整合与改进了旧元素的使用方法。</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>1)&lt;mark&gt;：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">&lt;mark&gt;标记可用于突出显示一些特殊文字，使原来不重要的信息变成重要信息，比如搜索结果。&lt;mark&gt;元素可以突出显示结果中匹配搜索字符的文字。示例：&nbsp;<br />
+	&lt;span&gt;My &lt;mark&gt;car&lt;/mark&gt; is red&lt;/span&gt;&nbsp;<br />
+	过去通常使用&lt;b&gt;元素来实现相同的结果，增加&lt;mark&gt;后就有了新的的用法：&nbsp;<br />
+	&middot;&lt;em&gt;应该用于表示强调（替代以前的&lt;i&gt;标记）&nbsp;<br />
+	&middot;&lt;strong&gt;用于表示重要性&nbsp;<br />
+	&middot;&lt;mark&gt;用于根据情况突出显示重要的文字&nbsp;<br />
+	&middot;&lt;b&gt;应该只用于其他的情况</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>2)&lt;small&gt;：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">&lt;small&gt;元素过去表示小字体文字，HTML5中表示附属细则，如法律细则、负责声明等。示例：&nbsp;<br />
+	&lt;small&gt;Copyright &copy; 2011 MinkBooks&lt;/small&gt;</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>3)&lt;cite&gt;：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">&lt;cite&gt;标记可用于显示作品的标题，如图书、电影、歌曲等。示例：&nbsp;<br />
+	&lt;span&gt;I love the movie &lt;cite&gt;Temptations&lt;/cite&gt;&lt;/span&gt;</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>4)&lt;address&gt;：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">&lt;address&gt;转变为一个结构元素。示例：&nbsp;<br />
+	&lt;footer&gt;&nbsp;<br />
+	&nbsp;&nbsp;&lt;address&gt;&nbsp;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot;http://www.jdgauchat.com&quot;&gt;JD Gauchat&lt;/a&gt;&nbsp;<br />
+	&nbsp;&nbsp;&lt;/address&gt;&nbsp;<br />
+	&lt;/footer&gt;</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;"><strong>5)&lt;time&gt;：</strong></span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+	<span style="font-size:14px;"><span style="color:#000000;">HTML5使用&lt;time&gt;元素声明机器可读的时间戳和显示更具可读性的日期和时间。示例：&nbsp;<br />
+	&lt;article&gt;&nbsp;<br />
+	&nbsp;&nbsp;&lt;header&gt;&nbsp;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Title of post Two&lt;/h1&gt;&nbsp;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&lt;time datetime=&quot;2011-10-12&quot;&nbsp;pubdate&gt;posted 12-10-2011&lt;/time&gt;&nbsp;<br />
+	&nbsp;&nbsp;&lt;/header&gt;&nbsp;<br />
+	&nbsp;&nbsp;This is the text of the article&nbsp;<br />
+	&lt;/article&gt;</span></span></p>
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+<p style="color: rgb(0, 0, 102); font-family: 新宋体; font-size: medium;">
+
+</div>
+
+
+  <!-- /pages -->
+
+
+
+
+<!-- /底部模板 -->
+<!-- /footer -->
+
+</body>
+</html>
