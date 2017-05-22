@@ -6,21 +6,39 @@
 		<link rel="short icon" type="text/css" href="img/11.ico">
 		<link rel="stylesheet" type="text/css" href="css/index.css">
 		<link rel="stylesheet" href="http://www.dtzhuanjia.com/private/plugin/menu/index.css">
+			<script src="img/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
 		<style type="text/css">
 			a:hover {
 				color: red;
 				s
 			}
+				#guangbiao{
+				width: 30px;
+				height: 30px;
+				position: absolute;
+			}
+			#guangbiao1{
+				width: 30px;
+				height:30px;
+			}
+			#wuzhexiao{
+				position: absolute;
+			
+			}
+			.middle_left{
+			/*	position: absolute;*/
+				margin-top:-45px;
+			}
 		</style>
 		<title>吴喆枭的个人博客</title>
-	</head>
+	</head> 
 
 	<body>
 		<!-- 头部 -->
 
 		<div class="top">
 			<div class="middle">
-				<div class="middle_left"><span>吴喆枭</span> 的个人博客</div>
+				<div class="middle_left">吴喆枭的个人博客</div>
 			 
 				<ul class="middle_ul">
 
@@ -128,6 +146,8 @@
                        <div class="bijilefta_right_top">5月14日总结:<span class="gituse">中级css3总结<a href="index16.html" target=_blank><img src="img/查看更多.png"/ style="background-color:#33FF99"></a></span></div>
                        <div class="bijilefta_right_top">5月14日总结:<span class="gituse">中级html5总结<a href="index17.html" target=_blank><img src="img/查看更多.png"/ style="background-color:#33FF99"></a></span></div>
                        <div class="bijilefta_right_top">5月14日总结:<span class="gituse">中级JQuery总结<a href="index12.html" target=_blank><img src="img/查看更多.png"/ style="background-color:#33FF99"></a></span></div>
+                       <div class="bijilefta_right_top">5月19日总结:<span class="gituse">前端面试题<a href="index18.html" target=_blank><img src="img/查看更多.png"/ style="background-color:#33FF99"></a></span></div>
+                       <div class="bijilefta_right_top">5月19日总结:<span class="gituse">Bootstrap框架<a href="index19.html" target=_blank><img src="img/查看更多.png"/ style="background-color:#33FF99"></a></span></div>
 
 				</div>
 			</div>
@@ -176,6 +196,7 @@
 					</div>
 				</div>
 			</div>
+			
 <!DOCTYPE html>
 <html>
 	<head>
@@ -186,7 +207,13 @@
 	</body>
 	<SCRIPT language=JavaScript>
 
-<!--
+$(window).load(function() {
+$(".middle_left").animate({
+		marginTop:"20px",
+})
+
+
+})
 
 var caution = false
 
